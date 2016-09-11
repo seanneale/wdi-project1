@@ -157,7 +157,7 @@ var japan = new squad('Japan','Japanese',[
 japan.generatePlayers();
 
 
-var ireland = new squad ('Ireland', 'Irish', [
+var ireland = new squad ('Republic of Ireland', 'Irish', [
     ['Keiren' , 'Westwood'] , ['Shay' , 'Given'] , ['Darren' , 'Randolph']
   ] , [
     ['Seamus' , 'Coleman'] , ['Ciaran' , 'Clark'] , ["John" , "O'Shea"] , ['Richard' , 'Keogh'] , ['Shane' , 'Duffy'] , ['Cyrus' , 'Christie'] , ['Stephen' , 'Ward']
@@ -169,256 +169,242 @@ var ireland = new squad ('Ireland', 'Irish', [
 
 ireland.generatePlayers();
 
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+var spain = new squad ('Spain', 'spanish', [
+    ['Iker' , 'Casillas'] , ['David' , 'de Gea'] , ['Sergio' , 'Rico']
+  ] , [
+    ['Cesar' , 'Azpilicueta'] , ['Gerard' , 'Pique'] , ['Marc' , 'Bartra'] , ['Hector' , 'Bellerin'] , ['Sergio' , 'Ramos'] , ['' , 'Juanfran'] , ['Mikel' , 'San Jose'] , ['Jordi' , 'Alba']
+  ] , [
+    ['Sergio' , 'Busquets'] , ['Andres' , 'Iniesta'] , ['' , 'Koke'] , ['Cesc' , 'Fabregas'] , ['' , 'Thiago'] , ['Bruno' , 'Soriano'] , ['David' , 'Silva']
+  ] , [
+    ['Alvaro' , 'Morata'] , ['Lucas' , 'Vazquez'] , ['' , 'Pedro'] , ['Aritz' , 'Aduriz'] , ['' , 'Nolito']
+  ] );
 
-//   ] , [
+spain.generatePlayers();
 
+var germany = new squad ('Germany', 'german', [
+    ['Manuel' , 'Neuer'] , ['Bernd' , 'Leno'] , ['Marc-Andre' , 'ter Stegen']
+  ] , [
+    ['Shkodran' , 'Mustafi'] , ['Jonas' , 'Hector'] , ['Benedikt' , 'Howedes'] , ['Mats' , 'Hummels'] , ['Jonathan' , 'Tah'] , ['Jerome' , 'Boateng'] , ['Joshua' , 'Kimmich']
+  ] , [
+    ['Sami' , 'Khedira']  , ['Bastian' , 'Schweinsteiger'] , ['Mesut' , 'Ozil'] , ['Andre' , 'Schurrle'] , ['Julian' , 'Draxler'] , ['Emre' , 'Can'] , ['Julian' , 'Weigl'] , ['Toni' , 'Kroos'] , ['Mario' , 'Gotze'] , ['Leroy' , 'Sane']
+  ] , [
+    ['Lukas Podolski'] , ['Thomas' , 'Muller'] , ['Mario' , 'Gomez']
+  ] );
+
+germany.generatePlayers();
+
+var germany = new squad ('Germany', 'german', [
+    ['Hugo' , 'Lloris'] , ['Steve' , 'Mandanda'] , ['Benoît' , 'Costil']
+  ] , [
+    ['Christophe' , 'Jallet'] , ['Patrice' , 'Evra'] , ['Adil' , 'Rami'] , ['Eliaquim' , 'Mangala'] , ['Lucas' , 'Digne'] , ['Bacary' , 'Sagna'] , ['Laurent' , 'Koscielny'] , ['Samuel' , 'Umtiti']
+  ] , [
+    ["N'Golo" , 'Kante']  , ['Yohan' , 'Cabaye'] , ['Dimitri' , 'Payet'] , ['Morgan Schneiderlin'] , ['Blaise Matuidi'] , ['Paul Pogba'] , ['Moussa Sissoko']
+  ] , [
+    ['Antoine' , 'Griezmann'] , ['Olivier' , 'Giroud'] , ['André-Pierre' , 'Gignac'] , ['Anthony' , 'Martial'] , ['Kingsley'' , ''Coman']
+  ] );
+
+germany.generatePlayers();
+
+var england = new squad ('England', 'engish', [
+    ['Joe' , 'Hart'] , ['Fraser' , 'Forster'] , ['Tom' , 'Heaton']
+  ] , [
+    ['Kyle' , 'Walker'] , ['Danny' , 'Rose'] , ['Gary' , 'Cahill'] , ['Chris' , 'Smalling'] , ['Nathaniel' , 'Clyne'] , ['John' , 'Stones'] , ['Ryan' , 'Bertrand']
+  ] , [
+    ['James' , 'Milner']  , ['Raheem' , 'Sterling'] , ['Adam' , 'Lallana'] , ['Jordan' , 'Henderson'] , ['Eric' , 'Dier'] , ['Jack' , 'Wilshere'] , ['Dele' , 'Alli']
+  ] , [
+    ['Harry' , 'Kane'] , ['Wayne' , 'Rooney'] , ['Jamie' , 'Vardy'] , ['Daniel' , 'Sturridge'] , ['Marcus' , 'Rashford']
+  ] );
+
+england.generatePlayers();
+
+var australia = new squad ('Australia', 'australian', [
+    ['Mathew' , 'Ryan'] , ['Mitchell' , 'Langerak'] , ['Eugene' , 'Galekovic']
+  ] , [
+    ['Ivan' , 'Franjic'] , ['Jason' , 'Davidson'] , ['Matthew' , 'Spiranovic'] , ['Chris' , 'Herd'] , ['Aziz' , 'Behich'] , ['Trent' , 'Sainsbury'] , ['Alex' , 'Wilkinson']
+  ] , [
+    ['Mark' , 'Milligan']  , ['Mathew' , 'Leckie'] , ['Tommy' , 'Oar'] , ['James' , 'Troisi'] , ['Mile' , 'Jedinak'] , ['Matt' , 'McKay'] , ['Terry' , 'Antonis'] , ['Massimo' , 'Luongo'] , ['Mark' , 'Bresciano']
+  ] , [
+    ['Tim' , 'Cahill'] , ['Tomi' , 'Juric'] , ['Robbie' , 'Kruse'] , ['Nathan' , 'Burns']
+  ] );
+
+australia.generatePlayers();
+
+var southKorea = new squad ('South Korea', 'south korean', [
+    ['Jung' , 'Sung-ryong'] , ['Kim' , 'Seung-gyu'] , ['Kim' , 'Jin-hyeon']
+  ] , [
+    ['Kim' , 'Chang-soo'] , ['Kim' , 'Jin-su'] , ['Kim' , 'Ju-young'] , ['Kwak' , 'Tae-hwi'] , ['Kim' , 'Young-gwon'] , ['Jang' , 'Hyun-soo'] , ['Cha' , 'Du-ri']
+  ] , [
+    ['Park' , 'Joo-ho']  , ['Son' , 'Heung-min'] , ['Kim' , 'Min-woo'] , ['Nam' , 'Tae-hee'] , ['Han' , 'Kyo-won'] , ['Koo' , 'Ja-cheol'] , ['Han' , 'Kook-young'] , ['Lee' , 'Myung-joo'] , ['Ki' , 'Sung-yueng'] , ['Lee' , 'Chung-yong']
+  ] , [
+    ['Cho' , 'Young-cheol'] , ['Lee' , 'Keun-ho'] , ['Lee' , 'Jung-hyup']
+  ] );
+
+southKorea.generatePlayers();
+
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
+//   ] , [
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwvar blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// ood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
+// germany.generatePlayers();
 
+// var germany = new squad ('Germany', 'german', [
+//     ['' , ''] , [''] , ['']
 //   ] , [
-
+//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
+//   ] , [
+//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
 //   ] );
 
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
-
-//   ] , [
-
-//   ] );
-
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
-
-//   ] , [
-
-//   ] );
-
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
-
-//   ] , [
-
-//   ] );
-
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
-
-//   ] , [
-
-//   ] );
-
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
-
-//   ] , [
-
-//   ] );
-
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
-
-//   ] , [
-
-//   ] );
-
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
-
-//   ] , [
-
-//   ] );
-
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
-
-//   ] , [
-
-//   ] );
-
-// blank.generatePlayers();
-// var blank = new squad ('Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , [''] , ['']
-//   ] , [
-//     ['Seamus' , 'Coleman']
-//   ] , [
-
-//   ] , [
-
-//   ] );
-
-// blank.generatePlayers();
+// germany.generatePlayers();
