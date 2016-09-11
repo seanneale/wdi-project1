@@ -193,7 +193,7 @@ var germany = new squad ('Germany', 'german', [
 
 germany.generatePlayers();
 
-var germany = new squad ('Germany', 'german', [
+var france = new squad ('France', 'french', [
     ['Hugo' , 'Lloris'] , ['Steve' , 'Mandanda'] , ['Benoît' , 'Costil']
   ] , [
     ['Christophe' , 'Jallet'] , ['Patrice' , 'Evra'] , ['Adil' , 'Rami'] , ['Eliaquim' , 'Mangala'] , ['Lucas' , 'Digne'] , ['Bacary' , 'Sagna'] , ['Laurent' , 'Koscielny'] , ['Samuel' , 'Umtiti']
@@ -203,7 +203,7 @@ var germany = new squad ('Germany', 'german', [
     ['Antoine' , 'Griezmann'] , ['Olivier' , 'Giroud'] , ['André-Pierre' , 'Gignac'] , ['Anthony' , 'Martial'] , ['Kingsley'' , ''Coman']
   ] );
 
-germany.generatePlayers();
+france.generatePlayers();
 
 var england = new squad ('England', 'engish', [
     ['Joe' , 'Hart'] , ['Fraser' , 'Forster'] , ['Tom' , 'Heaton']
@@ -241,41 +241,41 @@ var southKorea = new squad ('South Korea', 'south korean', [
 
 southKorea.generatePlayers();
 
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
+var algeria = new squad ('Algeria', 'algeria', [
+    ['Azzedine' , 'Doukha'] , ['Cédric' , 'Si Mohamed'] , ['Raïs' , "M'Bolhi"]
+  ] , [
+    ['Madjid' , 'Bougherra'] , ['Faouzi' , 'Ghoulam'] , ['Liassine' , 'Cadamuro-Bentaïba'] , ['Rafik' , 'Halliche'] , ['Djamel' , 'Mesbah'] , ['Carl' , 'Medjani'] , ['Aissa' , 'Mandi'] , ['Mehdi' , 'Zeffane']
+  ] , [
+    ['Riyad' , 'Mahrez']  , ['Medhi' , 'Lacen'] , ['Sofiane' , 'Feghouli'] , ['Yacine' , 'Brahimi'] , ['Nabil' , 'Bentaleb'] , ['Foued' , 'Kadir'] , ['Abdelmoumene' , 'Djabou'] , ['Saphir' , 'Taider'] , ['Ahmed' , 'Kashi']
+  ] , [
+    ['Ishak' , 'Belfodil'] , ['Islam' , 'Slimani'] , ['El Arbi' , 'Soudani']
+  ] );
 
-// germany.generatePlayers();
+algeria.generatePlayers();
 
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
+var ghana = new squad ('Ghana', 'Ghanaian', [
+    ['Brimah' , 'Razak'] , ['Ernest' , 'Sowah'] , ['Fatau' , 'Dauda']
+  ] , [
+    ['Edwin' , 'Gyimah'] , ['Mohamed' , 'Awal'] , ['Baba' , 'Rahman'] , ['Daniel' , 'Amartey'] , ['Jonathan' , 'Mensah'] , ['John' , 'Boye'] , ['Harrison' , 'Afful']
+  ] , [
+    ['Afriyie' , 'Acquah']  , ['Christian' , 'Atsu'] , ['Emmanuel' , 'Agyemang-Badu'] , ['Andre' , 'Ayew'] , ['Mubarak' , 'Wakaso'] , ['Mohammed' , 'Rabiu'] , ['Solomon' , 'Asante'] , ['Frank' , 'Acheampong']
+  ] , [
+    ['Kwesi' , 'Appiah'] , ['Asamoah' , 'Gyan'] , ['Jordan' , 'Ayew'] , ['Mahatma' , 'Otoo'] , ['David' , 'Accam']
+  ] );
 
-// germany.generatePlayers();
+ghana.generatePlayers();
 
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
+var ivoryCoast = new squad ('Ivory Coast', 'Ivorian', [
+    ['Boubacar' , 'Barry'] , ['Sylvain' , 'Gbohouo'] , ['Sayouba' , 'Mande']
+  ] , [
+    ['Ousmane' , 'Viera'] , ['Kolo' , 'Toure'] , ['Siaka' , 'Tiene'] , ['Jean-Daniel' , 'Akpa-Akpro'] , ['Serge' , 'Aurier'] , ['Eric' , 'Bailly'] , ['Wilfried' , 'Kanon']
+  ] , [
+    ['Roger' , 'Assale']  , ['Cheick' , 'Doukoure'] , ['Cheick' , 'Tiote'] , ['Ismael' , 'Diomande'] , ['Max' , 'Gradel'] , ['Yaya' , 'Toure'] , ['Serey' , 'Die']
+  ] , [
+    ['Seydou' , 'Doumbia'] , ['Salomon' , 'Kalou'] , ['' , 'Gervinho'] , ['Junior' , 'Tallo'] , ['Wilfried' , 'Bony'] , ['Lacina' , 'Traore']
+  ] );
 
-// germany.generatePlayers();
+ivoryCoast.generatePlayers();
 
 // var germany = new squad ('Germany', 'german', [
 //     ['' , ''] , [''] , ['']
