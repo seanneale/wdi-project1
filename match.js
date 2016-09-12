@@ -27,6 +27,14 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
     this.pass();
   };
 
+  this.midpointCalc = function(){
+    if(this.control === this.homeTeam){
+      console.log(homeTeam);
+    } else {
+      console.log(awayTeam);
+    }
+  }
+
   // pass function - calculate odds and carry out 'pass'
   this.pass = function(){
     this.time();
@@ -50,6 +58,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
       this.endStatus();
     } else {
       //calculate odds
+      this.midpointCalc();
       var midPoint = 0.6;
       //determine random number
       var pass = Math.random();
@@ -147,6 +156,8 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
         this.awayTeamEndStatus = "win";
       }
     }
+
+
 
   }
 }
