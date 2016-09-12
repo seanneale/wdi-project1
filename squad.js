@@ -151,7 +151,6 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
     var abilityArray = [];
     var gkArray = this.goalkeepers;
     for(var i = 0; i < gkArray.length; i++){
-      console.log(gkArray[i].ability);
       var ability = gkArray[i].ability;
       abilityArray.push(ability);
     }
@@ -173,15 +172,75 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
   this.autopickDefender = function(){
     //create an array of defenders abilities
     //create a temp array of defenders that players can be removed from
+    var abilityArray = [];
+    var defArray = this.defenders;
+    for(var i = 0; i < defArray.length; i++){
+      var ability =defArray[i].defendingAbility;
+      abilityArray.push(ability);
+    }
     //check for a value of ten
-    //if found find the indexof the value
-    //use index to find the right defender
-    //add that defender to this.pickedDefenders
+    var abilityLevel = 10;
+    while(this.pickedDefenders.length < 4){
+      //if found find the indexof the value
+      //use index to find the right defender
+      var playLoc = abilityArray.indexOf(abilityLevel);
+      if(playLoc === -1){
+        abilityLevel--
+      } else {
+        //add that defender to this.pickedDefenders
+        this.pickedDefenders.push(defArray[playLoc]);
+        //remove defender from the temp arrays
+        defArray.splice(playLoc,1);
+        abilityArray.splice(playLoc,1);
+      }
+    }
+
     //if this.pickedDefenders is less than 4
     //check again for ten
     //if no ten
     //reduce value to 9
-    //go again
+    //go again while loop better?
+    //
+  }
+
+  this.autopickMidfielder = function(){
+    var abilityArray = [];
+    var midArray = this.midfielders;
+    for(var i = 0; i < midArray.length; i++){
+      var ability = midArray[i].averageAbility;
+      abilityArray.push(ability);
+    }
+    var abilityLevel = 10;
+    while(this.pickedMidfielders.length < 4){
+      var playLoc = abilityArray.indexOf(abilityLevel);
+      if(playLoc === -1){
+        abilityLevel--
+      } else {
+        this.pickedMidfielders.push(midArray[playLoc]);
+        midArray.splice(playLoc,1);
+        abilityArray.splice(playLoc,1);
+      }
+    }
+  }
+
+  this.autopickAttacker = function(){
+    var abilityArray = [];
+    var attArray = this.attackers;
+    for(var i = 0; i < attArray.length; i++){
+      var ability = attArray[i].attackingAbility;
+      abilityArray.push(ability);
+    }
+    var abilityLevel = 10;
+    while(this.pickedAttackers.length < 2){
+      var playLoc = abilityArray.indexOf(abilityLevel);
+      if(playLoc === -1){
+        abilityLevel--
+      } else {
+        this.pickedAttackers.push(attArray[playLoc]);
+        attArray.splice(playLoc,1);
+        abilityArray.splice(playLoc,1);
+      }
+    }
   }
 
 }
@@ -378,3 +437,8 @@ var mexico = new squad ('Mexico', 'mexico', [
   ] );
 
 mexico.generatePlayers();
+
+ireland.autopickGK();
+ireland.autopickDefender();
+ireland.autopickMidfielder();
+ireland.autopickAttacker();
