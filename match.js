@@ -8,10 +8,10 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
   this.homeTeamAttacker = homeTeamSquad[3];
   this.homeTeamScore = 0;
   this.awayTeam = awayTeam;
-  this.awayTeamGoalkeeper = homeTeamSquad[0];
-  this.awayTeamDefender = homeTeamSquad[1];
-  this.awayTeamMidfielder = homeTeamSquad[2];
-  this.awayTeamAttacker = homeTeamSquad[3];
+  this.awayTeamGoalkeeper = awayTeamSquad[0];
+  this.awayTeamDefender = awayTeamSquad[1];
+  this.awayTeamMidfielder = awayTeamSquad[2];
+  this.awayTeamAttacker = awayTeamSquad[3];
   this.awayTeamScore = 0;
   this.clock = 0;
   this.control = this.homeTeam;
@@ -27,11 +27,156 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
     this.pass();
   };
 
+  this.randomPlayer = function(array){
+    var rand = Math.random();
+    //use random number to get a lot in the array
+    if(rand < 0.2){
+      number = 0;
+    } else if(rand < 0.4){
+      number = 1;
+    } else if(rand < 0.6){
+      number = 2;
+    } else if(rand < 0.8){
+      number = 3;
+    } else {
+      number = 4;
+    }
+    //check slot is in the target array and redraw if not
+    if(number + 1 > array.length){
+      this.randomPlayer(array);
+    }
+    return number;
+  }
+
+  this.arraySum = function(array,interest){
+    var abilityArray = [];
+    var targetArray = array;
+    if(interest === "defence"){
+      for(var i = 0; i < targetArray.length; i++){
+        var ability = targetArray[i].defendingAbility;
+        abilityArray.push(ability);
+      }
+    } else {
+      for(var i = 0; i < targetArray.length; i++){
+        var ability = targetArray[i].attackingAbility;
+        abilityArray.push(ability);
+      }
+    }
+    var total = 0;
+    for(var i = 0; i < abilityArray.length; i++){
+      total += abilityArray[i];
+    }
+    return total;
+  }
+
+  this.midpointGenerate = function(homePlayerAbility,homePositionAverage,awayPlayerAbility,awayPositionAverage){
+    var homeTeamCalc = homePlayerAbility + homePositionAverage;
+    var awayTeamCalc = awayPlayerAbility + awayPositionAverage;
+    var midPoint = homeTeamCalc / (homeTeamCalc + awayTeamCalc);
+    return midPoint
+  }
+
   this.midpointCalc = function(){
     if(this.control === this.homeTeam){
-      console.log(homeTeam);
+      if(this.possessionZone <= 2){
+        //home team defenders attacking away team attacker
+        //generate random players
+        var number = 0;
+        var homePlayer = this.randomPlayer(this.homeTeamDefender);
+        var awayPlayer = this.randomPlayer(this.awayTeamAttacker);
+        //retreive abilities
+        var homePlayerAbility = this.homeTeamDefender[homePlayer].attackingAbility;
+        var homePositionTotal = this.arraySum(this.homeTeamDefender,"attack");
+        var homePositionAverage = homePositionTotal / this.homeTeamDefender.length;
+        var awayPlayerAbility = this.awayTeamAttacker[awayPlayer].defendingAbility;
+        var awayPositionTotal = this.arraySum(this.awayTeamAttacker,"defence");
+        var awayPositionAverage = awayPositionTotal / this.awayTeamAttacker.length;
+        // generate midpoint
+        var midPoint = this.midpointGenerate(homePlayerAbility,homePositionAverage,awayPlayerAbility,awayPositionAverage);
+        return midPoint
+      } else if (2 < this.possessionZone < 6){
+        //home team midfielders attacking away team midfielders
+        //generate random players
+        var number = 0;
+        var homePlayer = this.randomPlayer(this.homeTeamMidfielder);
+        var awayPlayer = this.randomPlayer(this.awayTeamMidfielder);
+        //retreive abilities
+        var homePlayerAbility = this.homeTeamMidfielder[homePlayer].attackingAbility;
+        var homePositionTotal = this.arraySum(this.homeTeamMidfielder,"attack");
+        var homePositionAverage = homePositionTotal / this.homeTeamMidfielder.length;
+        var awayPlayerAbility = this.awayTeamMidfielder[awayPlayer].defendingAbility;
+        var awayPositionTotal = this.arraySum(this.awayTeamMidfielder,"defence");
+        var awayPositionAverage = awayPositionTotal / this.awayTeamMidfielder.length;
+        // generate midpoint
+        var midPoint = this.midpointGenerate(homePlayerAbility,homePositionAverage,awayPlayerAbility,awayPositionAverage);
+        return midPoint
+      } else {
+        //home team attackers attacking away team defenders
+        //generate random players
+        var number = 0;
+        var homePlayer = this.randomPlayer(this.homeTeamAttacker);
+        var awayPlayer = this.randomPlayer(this.awayTeamDefender);
+        //retreive abilities
+        var homePlayerAbility = this.homeTeamAttacker[homePlayer].attackingAbility;
+        var homePositionTotal = this.arraySum(this.homeTeamAttacker,"attack");
+        var homePositionAverage = homePositionTotal / this.homeTeamAttacker.length;
+        var awayPlayerAbility = this.awayTeamDefender[awayPlayer].defendingAbility;
+        var awayPositionTotal = this.arraySum(this.awayTeamDefender,"defence");
+        var awayPositionAverage = awayPositionTotal / this.awayTeamDefender.length;
+        // generate midpoint
+        var midPoint = this.midpointGenerate(homePlayerAbility,homePositionAverage,awayPlayerAbility,awayPositionAverage);
+        return midPoint
+      }
     } else {
-      console.log(awayTeam);
+      if(this.possessionZone <= 2){
+        //away team attackers attacking home team defenders
+        //generate random players
+        var number = 0;
+        var homePlayer = this.randomPlayer(this.homeTeamDefender);
+        var awayPlayer = this.randomPlayer(this.awayTeamAttacker);
+        //retreive abilities
+        var homePlayerAbility = this.homeTeamDefender[homePlayer].attackingAbility;
+        var homePositionTotal = this.arraySum(this.homeTeamDefender,"defence");
+        var homePositionAverage = homePositionTotal / this.homeTeamDefender.length;
+        var awayPlayerAbility = this.awayTeamAttacker[awayPlayer].attackingAbility;
+        var awayPositionTotal = this.arraySum(this.awayTeamAttacker,"attack");
+        var awayPositionAverage = awayPositionTotal / this.awayTeamAttacker.length;
+        // generate midpoint
+        var midPoint = this.midpointGenerate(homePlayerAbility,homePositionAverage,awayPlayerAbility,awayPositionAverage);
+        return midPoint
+      } else if (2 < this.possessionZone < 6){
+        //away team midfielders attacking home team midfielders
+        //generate random players
+        var number = 0;
+        var homePlayer = this.randomPlayer(this.homeTeamMidfielder);
+        var awayPlayer = this.randomPlayer(this.awayTeamMidfielder);
+        //retreive abilities
+        var homePlayerAbility = this.homeTeamMidfielder[homePlayer].defendingAbility;
+        var homePositionTotal = this.arraySum(this.homeTeamMidfielder,"defence");
+        var homePositionAverage = homePositionTotal / this.homeTeamMidfielder.length;
+        var awayPlayerAbility = this.awayTeamMidfielder[awayPlayer].attackingAbility;
+        var awayPositionTotal = this.arraySum(this.awayTeamMidfielder,"attack");
+        var awayPositionAverage = awayPositionTotal / this.awayTeamMidfielder.length;
+        // generate midpoint
+        var midPoint = this.midpointGenerate(homePlayerAbility,homePositionAverage,awayPlayerAbility,awayPositionAverage);
+        return midPoint
+      } else {
+        //away team defenders attacking home team attackers
+        //generate random players
+        var number = 0;
+        var homePlayer = this.randomPlayer(this.homeTeamAttacker);
+        var awayPlayer = this.randomPlayer(this.awayTeamDefender);
+        //retreive abilities
+        var homePlayerAbility = this.homeTeamAttacker[homePlayer].defendingAbility;
+        var homePositionTotal = this.arraySum(this.homeTeamAttacker,"defence");
+        var homePositionAverage = homePositionTotal / this.homeTeamAttacker.length;
+        var awayPlayerAbility = this.awayTeamDefender[awayPlayer].attackingAbility;
+        var awayPositionTotal = this.arraySum(this.awayTeamDefender,"attack");
+        var awayPositionAverage = awayPositionTotal / this.awayTeamDefender.length;
+        // generate midpoint
+        var midPoint = this.midpointGenerate(homePlayerAbility,homePositionAverage,awayPlayerAbility,awayPositionAverage);
+        return midPoint
+      }
     }
   }
 
@@ -58,8 +203,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
       this.endStatus();
     } else {
       //calculate odds
-      this.midpointCalc();
-      var midPoint = 0.6;
+      var midPoint = this.midpointCalc();
       //determine random number
       var pass = Math.random();
       //reacting to random number
@@ -97,6 +241,16 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
     console.log(this.control + " Shoot!");
     //calculate odds
     var midPoint = 0.4;
+    if(this.control === this.homeTeam){
+      var attacker = this.randomPlayer(this.homeTeamAttacker);
+      var attackerAbility = this.homeTeamAttacker[attacker].attackingAbility;
+      var goalkeeperAbility = this.awayTeamGoalkeeper[0].ability;
+    } else {
+      var attacker = this.randomPlayer(this.awayTeamAttacker);
+      var attackerAbility = this.awayTeamAttacker[attacker].attackingAbility;
+      var goalkeeperAbility = this.homeTeamGoalkeeper[0].ability;
+    }
+    var midPoint = attackerAbility / (attackerAbility + goalkeeperAbility);
     //determine random number
     var pass = Math.random();
     //reacting to random number

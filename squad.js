@@ -387,7 +387,7 @@ var ghana = new squad ('Ghana', 'Ghanaian', [
 ghana.generatePlayers();
 ghana.autopick();
 
-var ivoryCoast = new squad ('Ivory Coast', 'Ivorian', [
+var ivoryCoast = new squad ('Ivory Coast', 'ivorian', [
     ['Boubacar' , 'Barry'] , ['Sylvain' , 'Gbohouo'] , ['Sayouba' , 'Mande']
   ] , [
     ['Ousmane' , 'Viera'] , ['Kolo' , 'Toure'] , ['Siaka' , 'Tiene'] , ['Jean-Daniel' , 'Akpa-Akpro'] , ['Serge' , 'Aurier'] , ['Eric' , 'Bailly'] , ['Wilfried' , 'Kanon']
@@ -400,7 +400,7 @@ var ivoryCoast = new squad ('Ivory Coast', 'Ivorian', [
 ivoryCoast.generatePlayers();
 ivoryCoast.autopick();
 
-var chile = new squad ('Chile', 'Chilean', [
+var chile = new squad ('Chile', 'chilean', [
     ['Claudio' , 'Bravo'] , ['Paulo' , 'Garces'] , ['Johnny' , 'Herrera']
   ] , [
     ['Eugenio' , 'Mena'] , ['Miiko' , 'Albornoz'] , ['Mauricio' , 'Isla'] , ['Jose Pedro' , 'Fuenzalida'] , ['Jose' , 'Rojas'] , ['Jean' , 'Beausejour'] , ['Gary' , 'Medel'] , ['Gonzalo' , 'Jara']
