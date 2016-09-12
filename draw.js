@@ -1,5 +1,5 @@
 var Draw = function(){
-  this.teams = ["Algeria" , "Argentina" , "Australia" , "Brazil" , "Chile" , "England" , "France" , "Germany" , "Ghana" , "Ivory Coast" , "Japan" , "Mexico" , "Republic Of Ireland" , "South Korea" , "Spain" , "USA"];
+  this.teams = [algeria , argentina , australia , brazil , chile , england , france , germany , ghana , ivoryCoast , japan , mexico , ireland , southKorea , spain , usa];
   this.groupA = [0,0,0,0];
   this.groupB = [0,0,0,0];
   this.groupC = [0,0,0,0];
@@ -28,22 +28,22 @@ var Draw = function(){
   this.fixtureGenerate = function(){
     var j = 1;
     for(var i =0; i < this.groupArray.length; i++){
-      var match_j = new Match(this.groupArray[i][0],this.groupArray[i][1]);
+      var match_j = new Match(this.groupArray[i][0].nation,this.groupArray[i][1].nation,this.groupArray[i][0].picked,this.groupArray[i][1].picked);
       this.matchArray(i,match_j);
       var k = j+1;
-      var match_k = new Match(this.groupArray[i][2],this.groupArray[i][3]);
+      var match_k = new Match(this.groupArray[i][2].nation,this.groupArray[i][3].nation,this.groupArray[i][2].picked,this.groupArray[i][3].picked);
       this.matchArray(i,match_k);
       var l = j+8;
-      var match_l = new Match(this.groupArray[i][0],this.groupArray[i][2]);
+      var match_l = new Match(this.groupArray[i][0].nation,this.groupArray[i][2].nation,this.groupArray[i][0].picked,this.groupArray[i][2].picked);
       this.matchArray(i,match_l);
       var m = j+9;
-      var match_m = new Match(this.groupArray[i][1],this.groupArray[i][3]);
+      var match_m = new Match(this.groupArray[i][1].nation,this.groupArray[i][3].nation,this.groupArray[i][1].picked,this.groupArray[i][3].picked);
       this.matchArray(i,match_m);
       var n = j+16;
-      var match_n = new Match(this.groupArray[i][0],this.groupArray[i][3]);
+      var match_n = new Match(this.groupArray[i][0].nation,this.groupArray[i][3].nation,this.groupArray[i][0].picked,this.groupArray[i][3].picked);
       this.matchArray(i,match_n);
       var o = j+17;
-      var match_o = new Match(this.groupArray[i][1],this.groupArray[i][2]);
+      var match_o = new Match(this.groupArray[i][1].nation,this.groupArray[i][2].nation,this.groupArray[i][1].picked,this.groupArray[i][2].picked);
       this.matchArray(i,match_o);
       j+=2;
     }
@@ -121,7 +121,7 @@ var Draw = function(){
     }
   }
 
-    this.tableArray = function(i,row){
+  this.tableArray = function(i,row){
     if(i === 0){
       this.groupATableUnsorted.push(row);
     } else if (i ===1){

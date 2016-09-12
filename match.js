@@ -1,9 +1,17 @@
 //match object
-var Match = function(homeTeam,awayTeam){
+var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
   // setting up the basics
   this.homeTeam = homeTeam;
-  this.awayTeam = awayTeam;
+  this.homeTeamGoalkeeper = homeTeamSquad[0];
+  this.homeTeamDefender = homeTeamSquad[1];
+  this.homeTeamMidfielder = homeTeamSquad[2];
+  this.homeTeamAttacker = homeTeamSquad[3];
   this.homeTeamScore = 0;
+  this.awayTeam = awayTeam;
+  this.awayTeamGoalkeeper = homeTeamSquad[0];
+  this.awayTeamDefender = homeTeamSquad[1];
+  this.awayTeamMidfielder = homeTeamSquad[2];
+  this.awayTeamAttacker = homeTeamSquad[3];
   this.awayTeamScore = 0;
   this.clock = 0;
   this.control = this.homeTeam;

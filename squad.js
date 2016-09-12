@@ -1,4 +1,4 @@
-var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attackers){
+var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attackers,flagLoc){
   this.nation = nation;
   this.nationality = nationality;
   this.goalkeepersGen = goalkeepers;
@@ -14,6 +14,8 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
   this.pickedDefenders = [];
   this.pickedMidfielders = [];
   this.pickedAttackers = [];
+  this.flag = flagLoc;
+  this.picked = [this.pickedGoalkeepers , this.pickedDefenders , this.pickedMidfielders , this.pickedAttackers]
 
   //function to generate players
   this.generatePlayers = function(){
@@ -21,6 +23,14 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
     this.defenderAssignAbility();
     this.midfielderAssignAbility();
     this.attackerAssignAbility();
+  }
+
+  this.autopick = function(){
+    this.autopickGK();
+    this.autopickDefender();
+    this.autopickMidfielder();
+    this.autopickAttacker();
+    //this.picked = [this.pickedGoalkeepers , this.pickedDefenders , this.pickedMidfielders , this.pickedAttackers]
   }
 
   //function to assign GK ability
@@ -214,7 +224,7 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
     while(this.pickedMidfielders.length < 4){
       var playLoc = abilityArray.indexOf(abilityLevel);
       if(playLoc === -1){
-        abilityLevel--
+        abilityLevel-= 0.5;
       } else {
         this.pickedMidfielders.push(midArray[playLoc]);
         midArray.splice(playLoc,1);
@@ -245,6 +255,7 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
 
 }
 
+
 var japan = new squad('Japan','Japanese',[
     ['Eiji','Kawashima'] , ['Shusaku','Nishikawa'] , ['Masaaki' , 'Higashiguchi']
   ],[
@@ -256,6 +267,7 @@ var japan = new squad('Japan','Japanese',[
   ]);
 
 japan.generatePlayers();
+japan.autopick();
 
 
 var ireland = new squad ('Republic of Ireland', 'Irish', [
@@ -269,6 +281,7 @@ var ireland = new squad ('Republic of Ireland', 'Irish', [
   ] );
 
 ireland.generatePlayers();
+ireland.autopick();
 
 var spain = new squad ('Spain', 'spanish', [
     ['Iker' , 'Casillas'] , ['David' , 'de Gea'] , ['Sergio' , 'Rico']
@@ -281,6 +294,7 @@ var spain = new squad ('Spain', 'spanish', [
   ] );
 
 spain.generatePlayers();
+spain.autopick();
 
 var germany = new squad ('Germany', 'german', [
     ['Manuel' , 'Neuer'] , ['Bernd' , 'Leno'] , ['Marc-Andre' , 'ter Stegen']
@@ -293,6 +307,7 @@ var germany = new squad ('Germany', 'german', [
   ] );
 
 germany.generatePlayers();
+germany.autopick();
 
 var france = new squad ('France', 'french', [
     ['Hugo' , 'Lloris'] , ['Steve' , 'Mandanda'] , ['Benoît' , 'Costil']
@@ -305,6 +320,7 @@ var france = new squad ('France', 'french', [
   ] );
 
 france.generatePlayers();
+france.autopick();
 
 var england = new squad ('England', 'engish', [
     ['Joe' , 'Hart'] , ['Fraser' , 'Forster'] , ['Tom' , 'Heaton']
@@ -317,6 +333,7 @@ var england = new squad ('England', 'engish', [
   ] );
 
 england.generatePlayers();
+england.autopick();
 
 var australia = new squad ('Australia', 'australian', [
     ['Mathew' , 'Ryan'] , ['Mitchell' , 'Langerak'] , ['Eugene' , 'Galekovic']
@@ -329,6 +346,7 @@ var australia = new squad ('Australia', 'australian', [
   ] );
 
 australia.generatePlayers();
+australia.autopick();
 
 var southKorea = new squad ('South Korea', 'south korean', [
     ['Jung' , 'Sung-ryong'] , ['Kim' , 'Seung-gyu'] , ['Kim' , 'Jin-hyeon']
@@ -341,6 +359,7 @@ var southKorea = new squad ('South Korea', 'south korean', [
   ] );
 
 southKorea.generatePlayers();
+southKorea.autopick();
 
 var algeria = new squad ('Algeria', 'algeria', [
     ['Azzedine' , 'Doukha'] , ['Cédric' , 'Si Mohamed'] , ['Raïs' , "M'Bolhi"]
@@ -353,6 +372,7 @@ var algeria = new squad ('Algeria', 'algeria', [
   ] );
 
 algeria.generatePlayers();
+algeria.autopick();
 
 var ghana = new squad ('Ghana', 'Ghanaian', [
     ['Brimah' , 'Razak'] , ['Ernest' , 'Sowah'] , ['Fatau' , 'Dauda']
@@ -365,6 +385,7 @@ var ghana = new squad ('Ghana', 'Ghanaian', [
   ] );
 
 ghana.generatePlayers();
+ghana.autopick();
 
 var ivoryCoast = new squad ('Ivory Coast', 'Ivorian', [
     ['Boubacar' , 'Barry'] , ['Sylvain' , 'Gbohouo'] , ['Sayouba' , 'Mande']
@@ -377,6 +398,7 @@ var ivoryCoast = new squad ('Ivory Coast', 'Ivorian', [
   ] );
 
 ivoryCoast.generatePlayers();
+ivoryCoast.autopick();
 
 var chile = new squad ('Chile', 'Chilean', [
     ['Claudio' , 'Bravo'] , ['Paulo' , 'Garces'] , ['Johnny' , 'Herrera']
@@ -389,6 +411,7 @@ var chile = new squad ('Chile', 'Chilean', [
   ] );
 
 chile.generatePlayers();
+chile.autopick();
 
 var argentina = new squad ('Argentina', 'argentinian', [
     ['Sergio' , 'Romero'] , ['Nahuel' , 'Guzman'] , ['Mariano' , 'Andujar']
@@ -401,6 +424,7 @@ var argentina = new squad ('Argentina', 'argentinian', [
   ] );
 
 argentina.generatePlayers();
+argentina.autopick();
 
 var brazil = new squad ('Brazil', 'brazilian', [
     ['' , 'Jefferson'] , ['' , 'Neto'] , ['Marcelo' , 'Grohe']
@@ -413,6 +437,7 @@ var brazil = new squad ('Brazil', 'brazilian', [
   ] );
 
 brazil.generatePlayers();
+brazil.autopick();
 
 var usa = new squad ('USA', 'american', [
     ['Brad' , 'Guzan'] , ['Nick' , 'Rimando'] , ['William' , 'Yarbrough']
@@ -425,6 +450,7 @@ var usa = new squad ('USA', 'american', [
   ] );
 
 usa.generatePlayers();
+usa.autopick();
 
 var mexico = new squad ('Mexico', 'mexico', [
     ['Moises' , 'Munoz'] , ['Jonathan' , 'Orozco'] , ['Guillermo' , 'Ochoa']
@@ -437,8 +463,4 @@ var mexico = new squad ('Mexico', 'mexico', [
   ] );
 
 mexico.generatePlayers();
-
-ireland.autopickGK();
-ireland.autopickDefender();
-ireland.autopickMidfielder();
-ireland.autopickAttacker();
+mexico.autopick();
