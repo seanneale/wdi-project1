@@ -10,6 +10,10 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
   this.midfielders = [];
   this.attackers = [];
   this.control = false;
+  this.pickedGoalkeepers = [];
+  this.pickedDefenders = [];
+  this.pickedMidfielders = [];
+  this.pickedAttackers = [];
 
   //function to generate players
   this.generatePlayers = function(){
@@ -142,6 +146,44 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
     }
   }
 
+  this.autopickGK = function(){
+    // define the GK array
+    var abilityArray = [];
+    var gkArray = this.goalkeepers;
+    for(var i = 0; i < gkArray.length; i++){
+      console.log(gkArray[i].ability);
+      var ability = gkArray[i].ability;
+      abilityArray.push(ability);
+    }
+    // loop through the array and find the max value
+    var max = 0;
+    for(var i = 0; i < abilityArray.length; i++){
+      if(abilityArray[i] > max){
+        max = abilityArray[i];
+      };
+    }
+    // find the index of the max value
+    var maxIndex = abilityArray.indexOf(max);
+    // use that to find the GK
+    var pickedPlayer = gkArray[maxIndex];
+    //add this to the picked goalkeepers array
+    this.pickedGoalkeepers.push(pickedPlayer);
+  }
+
+  this.autopickDefender = function(){
+    //create an array of defenders abilities
+    //create a temp array of defenders that players can be removed from
+    //check for a value of ten
+    //if found find the indexof the value
+    //use index to find the right defender
+    //add that defender to this.pickedDefenders
+    //if this.pickedDefenders is less than 4
+    //check again for ten
+    //if no ten
+    //reduce value to 9
+    //go again
+  }
+
 }
 
 var japan = new squad('Japan','Japanese',[
@@ -200,7 +242,7 @@ var france = new squad ('France', 'french', [
   ] , [
     ["N'Golo" , 'Kante']  , ['Yohan' , 'Cabaye'] , ['Dimitri' , 'Payet'] , ['Morgan Schneiderlin'] , ['Blaise Matuidi'] , ['Paul Pogba'] , ['Moussa Sissoko']
   ] , [
-    ['Antoine' , 'Griezmann'] , ['Olivier' , 'Giroud'] , ['André-Pierre' , 'Gignac'] , ['Anthony' , 'Martial'] , ['Kingsley'' , ''Coman']
+    ['Antoine' , 'Griezmann'] , ['Olivier' , 'Giroud'] , ['André-Pierre' , 'Gignac'] , ['Anthony' , 'Martial'] , ['Kingsley' , 'Coman']
   ] );
 
 france.generatePlayers();
@@ -277,134 +319,62 @@ var ivoryCoast = new squad ('Ivory Coast', 'Ivorian', [
 
 ivoryCoast.generatePlayers();
 
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
+var chile = new squad ('Chile', 'Chilean', [
+    ['Claudio' , 'Bravo'] , ['Paulo' , 'Garces'] , ['Johnny' , 'Herrera']
+  ] , [
+    ['Eugenio' , 'Mena'] , ['Miiko' , 'Albornoz'] , ['Mauricio' , 'Isla'] , ['Jose Pedro' , 'Fuenzalida'] , ['Jose' , 'Rojas'] , ['Jean' , 'Beausejour'] , ['Gary' , 'Medel'] , ['Gonzalo' , 'Jara']
+  ] , [
+    ['Francisco' , 'Silva']  , ['Arturo' , 'Vidal'] , ['Jorge' , 'Valdivia'] , ['Matias' , 'Fernandez'] , ['David' , 'Pizarro'] , ['Felipe' , 'Gutierrez'] , ['Charles' , 'Aranguiz'] , ['Marcelo' , 'Diaz']
+  ] , [
+    ['Alexis' , 'Sanchez'] , ['Mauricio' , 'Pinilla'] , ['Eduardo' , 'Vargas'] , ['Angelo' , 'Henriquez']
+  ] );
 
-// germany.generatePlayers();
+chile.generatePlayers();
 
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
+var argentina = new squad ('Argentina', 'argentinian', [
+    ['Sergio' , 'Romero'] , ['Nahuel' , 'Guzman'] , ['Mariano' , 'Andujar']
+  ] , [
+    ['Ezequiel' , 'Garay'] , ['Facundo' , 'Roncaglia'] , ['Pablo' , 'Zabaleta'] , ['Milton' , 'Casco'] , ['Martin' , 'Demichelis'] , ['Marcos' , 'Rojo'] , ['Nicolas' , 'Otamendi']
+  ] , [
+    ['Fernando' , 'Gago']  , ['Lucas' , 'Biglia'] , ['Angel' , 'Di Maria'] , ['Roberto' , 'Pereyra'] , ['Javier' , 'Mascherano'] , ['Ever' , 'Banega'] , ['Erik' , 'Lamela'] , ['Javier' , 'Pastore']
+  ] , [
+    ['Gonzalo' , 'Higuain'] , ['Lionel' , 'Messi'] , ['Sergio' , 'Aguero'] , ['Carlos' , 'Tevez'] , ['Ezequiel' , 'Lavezzi']
+  ] );
 
-// germany.generatePlayers();
+argentina.generatePlayers();
 
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
+var brazil = new squad ('Brazil', 'brazilian', [
+    ['' , 'Jefferson'] , ['' , 'Neto'] , ['Marcelo' , 'Grohe']
+  ] , [
+    ['Dani' , 'Alves'] , ['' , 'Miranda'] , ['David' , 'Luiz'] , ['Filipe' , 'Luis'] , ['' , 'Marquinhos'] , ['Thiago' , 'Silva'] , ['' , 'Geferson'] , ['' , 'Fabinho']
+  ] , [
+    ['' , 'Fernandinho']  , ['Douglas' , 'Costa'] , ['' , 'Elias'] , ['Roberto' , 'Firmino'] , ['' , 'Fred'] , ['Everton' , 'Ribeiro'] , ['' , 'Willian'] , ['Philippe' , 'Coutinho'] , ['' , 'Casemiro']
+  ] , [
+    ['Diego' , 'Tardelli'] , ['' , 'Neymar'] , ['' , 'Robinho']
+  ] );
 
-// germany.generatePlayers();
+brazil.generatePlayers();
 
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
+var usa = new squad ('USA', 'american', [
+    ['Brad' , 'Guzan'] , ['Nick' , 'Rimando'] , ['William' , 'Yarbrough']
+  ] , [
+    ['DeAndre' , 'Yedlin'] , ['Omar' , 'Gonzalez'] , ['John' , 'Brooks'] , ['Ventura' , 'Alvarado'] , ['Greg' , 'Garza'] , ['Tim' , 'Ream'] , ['Brad' , 'Evans'] , ['Timothy' , 'Chandler']
+  ] , [
+    ['Michael' , 'Bradley']  , ['Kyle' , 'Beckerman'] , ['Alfredo' , 'Morales'] , ['Mix' , 'Diskerud'] , ['Alejandro' , 'Bedoya'] , ['Graham' , 'Zusi'] , ['Gyasi' , 'Zardes'] , ['Fabian' , 'Johnson']
+  ] , [
+    ['Clint' , 'Dempsey'] , ['Aron' , 'Johannsson'] , ['Jozy' , 'Altidore'] , ['Chris' , 'Wondolowski']
+  ] );
 
-// germany.generatePlayers();
+usa.generatePlayers();
 
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
+var mexico = new squad ('Mexico', 'mexico', [
+    ['Moises' , 'Munoz'] , ['Jonathan' , 'Orozco'] , ['Guillermo' , 'Ochoa']
+  ] , [
+    ['Francisco' , 'Rodriguez'] , ['Yasser' , 'Corona'] , ['Miguel' , 'Herrera'] , ['Diego' , 'Reyes'] , ['Miguel' , 'Layun'] , ['Miguel' , 'Layunx'] , ['Jorge' , 'Torres Nilo'] , ['Paul' , 'Aguilar']
+  ] , [
+    ['Hector' , 'Herrera']  , ['Jonathan' , 'dos Santos'] , ['Jesus' , 'Corona'] , ['Antonio' , 'Rios'] , ['Andres' , 'Guardado'] , ['Jesus' , 'Duenas'] , ['Carlos' , 'Esquivel'] , ['Jose' , ' Vazquez']
+  ] , [
+    ['Giovani' , 'dos Santos'] , ['Carlos' , 'Vela'] , ['Javier' , 'Orozco'] , ['Oribe' , 'Peralta']
+  ] );
 
-// germany.generatePlayers();
-
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
-
-// germany.generatePlayers();
-
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
-
-// germany.generatePlayers();
-
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
-
-// germany.generatePlayers();
-
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
-
-// germany.generatePlayers();
-
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
-
-// germany.generatePlayers();
-
-// var germany = new squad ('Germany', 'german', [
-//     ['' , ''] , [''] , ['']
-//   ] , [
-//     ['' , ''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     ['']  , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] , [
-//     [''] , [''] , [''] , [''] , [''] , [''] , [''] , [''] , ['']
-//   ] );
-
-// germany.generatePlayers();
+mexico.generatePlayers();

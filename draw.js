@@ -1,5 +1,5 @@
 var Draw = function(){
-  this.teams = ["Algeria" , "Argentina" , "Australia" , "Brazil" , "Cameroon" , "Chile" , "Egypt" , "England" , "France" , "Germany" , "Japan" , "Mexico" , "Republic Of Ireland" , "South Korea" , "Spain" , "USA"];
+  this.teams = ["Algeria" , "Argentina" , "Australia" , "Brazil" , "Chile" , "England" , "France" , "Germany" , "Ghana" , "Ivory Coast" , "Japan" , "Mexico" , "Republic Of Ireland" , "South Korea" , "Spain" , "USA"];
   this.groupA = [0,0,0,0];
   this.groupB = [0,0,0,0];
   this.groupC = [0,0,0,0];
@@ -8,6 +8,14 @@ var Draw = function(){
   this.groupBMatches = [];
   this.groupCMatches = [];
   this.groupDMatches = [];
+  this.groupATable = [];
+  this.groupBTable = [];
+  this.groupCTable = [];
+  this.groupDTable = [];
+  this.groupATableUnsorted = [];
+  this.groupBTableUnsorted = [];
+  this.groupCTableUnsorted = [];
+  this.groupDTableUnsorted = [];
   this.groupArray = [this.groupA , this.groupB , this.groupC , this.groupD];
 
 
@@ -73,6 +81,7 @@ var Draw = function(){
     }
   }
 
+  //function to distribute matches to the correct array based on groups
   this.matchArray = function(i,game){
     if(i === 0){
       this.groupAMatches.push(game);
@@ -85,6 +94,57 @@ var Draw = function(){
     }
   }
 
+  //object which stores the team info of the group table
+  this.tableRow = function(nation){
+    this.nation = nation;
+    this.win = 0;
+    this.draw = 0;
+    this.lose = 0;
+    this.goalsFor = 0;
+    this.goalsAgainst = 0;
+    this.goalDifference = this.goalsFor - this.goalsAgainst;
+    this.points = this.win * 3 + this.draw;
+  }
+
+  //function to build the initial table
+  this.tableBuild = function(){
+    var j = 1;
+    for(var i = 0; i < this.groupArray.length; i++){
+      var temp = this.groupArray[i];
+      console.log(temp);
+      console.log(this.groupArray);
+      console.log(this.groupArray[i]);
+      for(var j = 0; j < temp.length; i++){
+        var row = new this.tableRow(temp[j]);
+        this.tableArray(i,row);
+      }
+    }
+  }
+
+    this.tableArray = function(i,row){
+    if(i === 0){
+      this.groupATableUnsorted.push(row);
+    } else if (i ===1){
+      this.groupBTableUnsorted.push(row);
+    } else if (i ===2){
+      this.groupCTableUnsorted.push(row);
+    } else {
+      this.groupDTableUnsorted.push(row);
+    }
+  }
+
+//   this.tableRow = function(teamA,teamB,teamC,teamD){
+//     var
+//     //for each match
+// //    for(i)
+//     //check if played
+//     //work out who has won, lost or drawn
+//     //increase the w/d/l value
+//     //calculate points 3w + d
+//     //change the goal for/against
+//     //calculate goal diff
+//   }
+
 }
 
 var test = new Draw();
@@ -92,3 +152,12 @@ var test = new Draw();
 test.teamDistribute();
 
 test.fixtureGenerate();
+
+// test.groupAMatches[0].kickOff();
+// test.groupAMatches[1].kickOff();
+// test.groupAMatches[2].kickOff();
+// test.groupAMatches[3].kickOff();
+// test.groupAMatches[4].kickOff();
+// test.groupAMatches[5].kickOff();
+
+//test.tableBuild();

@@ -8,6 +8,9 @@ var Match = function(homeTeam,awayTeam){
   this.clock = 0;
   this.control = this.homeTeam;
   this.possessionZone = 4;
+  this.played = false;
+  this.homeTeamEndStatus;
+  this.awayTeamEndStatus;
 
   // kick off
   this.kickOff = function(){
@@ -35,6 +38,8 @@ var Match = function(homeTeam,awayTeam){
       //give a score update
       console.log("Full Time!")
       this.score();
+      this.played = true;
+      this.endStatus();
     } else {
       //calculate odds
       var midPoint = 0.6;
@@ -121,9 +126,19 @@ var Match = function(homeTeam,awayTeam){
       console.log("The Score is: " + this.homeTeam + " " + this.homeTeamScore +" "+this.awayTeam+" "+this.awayTeamScore);
     }
 
+    //function to work assign a winner at the end of the game
+    this.endStatus = function(){
+      if(this.homeTeamScore === this.awayTeamScore){
+        this.homeTeamEndStatus = "draw";
+        this.awayTeamEndStatus = "draw";
+      } else if(this.homeTeamScore > this.awayTeamScore){
+        this.homeTeamEndStatus = "win";
+        this.awayTeamEndStatus = "lose";
+      } else {
+        this.homeTeamEndStatus = "lose";
+        this.awayTeamEndStatus = "win";
+      }
+    }
+
   }
 }
-
-
-
-var match1 = new Match('England', 'Scotland');
