@@ -202,6 +202,9 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
       this.score();
       this.played = true;
       this.endStatus();
+      if(this.homeTeamEndStatus === "draw" && this.stage === "knockout"){
+        this.penalty();
+      }
     } else {
       //calculate odds
       var midPoint = this.midpointCalc();
@@ -312,6 +315,23 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
     }
   }
 
+  this.penalty = function(){
+    console.log("Penalties!!!");
+    this.homeTeamEndStatus = "win";
+    //set some variables
+    var homeTeamPens = 0;
+    var awayTeamPens = 0;
+    //rank the ten outfield player in order of attacking ability
+    //for loop to take shots
+    //home  team first
+    //away team second
+    //after each penalty check to see if 'gap' is greater than remaining penalties
+    //if teams level after 5 pens each then go to sudden death
+    //while(homeTeamPens === awayTeamPens)
+    //do one penalty each
+    //once complete declare a winner to console
+    //then change the end status for winner and loser
+  }
 
 
   }

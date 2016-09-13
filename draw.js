@@ -18,6 +18,8 @@ var Draw = function(){
   this.groupDTableUnsorted = [];
   this.groupArray = [this.groupA , this.groupB , this.groupC , this.groupD];
   this.quarterFinalMatches = [];
+  this.semiFinalMatches = [];
+  this.finalMatches = [];
 
 
   this.teamDistribute = function(){
@@ -257,18 +259,9 @@ var Draw = function(){
     var c1 = this.groupCTable[1].nation;
     var d0 = this.groupDTable[0].nation;
     var d1 = this.groupDTable[1].nation;
-    console.log(a0);
-    console.log(a1);
-    console.log(b0);
-    console.log(b1);
-    console.log(c0);
-    console.log(c1);
-    console.log(d0);
-    console.log(d1);
     //find the squad required
     var nationArray = [a0 , a1 , b0 , b1 , c0 , c1 , d0 ,d1 ]
     var squadArray = [];
-    console.log(nationArray);
     for(var i = 0; i < nationArray.length; i++){
       //looking for each entry in the nation array
       for(var j =0; j < this.groupArray.length; j++){
@@ -280,10 +273,8 @@ var Draw = function(){
         }
       }
     }
-    console.log(squadArray);
 //      var match = new Match(team,team,squad,squad);
     for(var i = 0; i < nationArray.length; i += 4){
-      console.log(i);
       var j = i + 1;
       var k = i + 2;
       var l = i + 3;
@@ -293,6 +284,47 @@ var Draw = function(){
       var match = new Match(nationArray[j],nationArray[k],squadArray[j],squadArray[k],"knockout");
       this.quarterFinalMatches.push(match);
     }
+  }
+
+  this.semiFinalGenerate = function(){
+    //for this.quarterFinalMatches
+    //obtain the winning team for each match
+    //and push into nation array
+    var nationArray = [];
+    var squadArray = [];
+    for(i = 0; i < this.quarterFinalMatches.length; i++){
+      if(this.quarterFinalMatches[i].homeTeamEndStatus === "win"){
+        nationArray.push(this.quarterFinalMatches[i].homeTeam);
+        squadArray.push([this.quarterFinalMatches[i].homeTeamGoalkeeper,this.quarterFinalMatches[i].homeTeamDefender,this.quarterFinalMatches[i].homeTeamMidfielder,this.quarterFinalMatches[i].homeTeamAttacker]);
+      } else {
+        nationArray.push(this.quarterFinalMatches[i].awayTeam);
+        squadArray.push([this.quarterFinalMatches[i].awayTeamGoalkeeper,this.quarterFinalMatches[i].awayTeamDefender,this.quarterFinalMatches[i].awayTeamMidfielder,this.quarterFinalMatches[i].awayTeamAttacker]);
+      }
+    }
+    //generating the matches and pushing to the semifinalmatches array
+    for(var i = 0; i < nationArray.length; i+=2){
+      var j = i+1;
+      var match = new Match(nationArray[i],nationArray[j],squadArray[i],squadArray[j],"knockout");
+      this.semiFinalMatches.push(match);
+    }
+  }
+
+  this.finalGenerate = function(){
+    var nationArray = [];
+    var squadArray = [];
+    for(i = 0; i < this.semiFinalMatches.length; i++){
+      if(this.semiFinalMatches[i].homeTeamEndStatus === "win"){
+        nationArray.push(this.semiFinalMatches[i].homeTeam);
+        squadArray.push([this.semiFinalMatches[i].homeTeamGoalkeeper,this.semiFinalMatches[i].homeTeamDefender,this.semiFinalMatches[i].homeTeamMidfielder,this.semiFinalMatches[i].homeTeamAttacker]);
+      } else {
+        nationArray.push(this.semiFinalMatches[i].awayTeam);
+        squadArray.push([this.semiFinalMatches[i].awayTeamGoalkeeper,this.semiFinalMatches[i].awayTeamDefender,this.semiFinalMatches[i].awayTeamMidfielder,this.semiFinalMatches[i].awayTeamAttacker]);
+      }
+    }
+    console.log(nationArray);
+    console.log(squadArray);
+    var match = new Match(nationArray[0],nationArray[1],squadArray[0],squadArray[1],"knockout");
+    this.finalMatches.push(match);
   }
 }
 
@@ -366,6 +398,18 @@ test.tableSort(test.groupDTable,test.groupDTableUnsorted,test.groupDMatches);
 
 test.quarterFinalGenerate();
 test.quarterFinalMatches[0].kickOff();
+test.quarterFinalMatches[1].kickOff();
+test.quarterFinalMatches[2].kickOff();
+test.quarterFinalMatches[3].kickOff();
+
+test.semiFinalGenerate();
+
+test.semiFinalMatches[0].kickOff();
+test.semiFinalMatches[1].kickOff();
+
+test.finalGenerate();
+
+test.finalMatches[0].kickOff();
 
 // console.log(test.groupATableUnsorted[0].nation+' '+test.groupATableUnsorted[0].points+' '+test.groupATableUnsorted[0].position+' '+test.groupATableUnsorted[0].goalDifference+' '+test.groupATableUnsorted[0].goalsFor);
 // console.log(test.groupATableUnsorted[1].nation+' '+test.groupATableUnsorted[1].points+' '+test.groupATableUnsorted[1].position+' '+test.groupATableUnsorted[1].goalDifference+' '+test.groupATableUnsorted[1].goalsFor);
