@@ -20,6 +20,8 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
   this.homeTeamEndStatus;
   this.awayTeamEndStatus;
   this.stage = stage;
+  this.homeTeamPens = 0;
+  this.awayTeamPens = 0;
 
   // kick off
   this.kickOff = function(){
@@ -244,7 +246,6 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
   this.shoot = function(){
     console.log(this.control + " Shoot!");
     //calculate odds
-    var midPoint = 0.4;
     if(this.control === this.homeTeam){
       var attacker = this.randomPlayer(this.homeTeamAttacker);
       var attackerAbility = this.homeTeamAttacker[attacker].attackingAbility;
@@ -315,13 +316,66 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
     }
   }
 
-  this.penalty = function(){
-    console.log("Penalties!!!");
-    this.homeTeamEndStatus = "win";
-    //set some variables
-    var homeTeamPens = 0;
-    var awayTeamPens = 0;
-    //rank the ten outfield player in order of attacking ability
+  this.penaltyShot = function(player,gk){
+    var midPoint = (5 + player.attackingAbility) / (player.attackingAbility + gk[0].ability);
+    //determine random number
+    var pass = Math.random();
+    //reacting to random number
+    if(pass <= midPoint){
+      console.log(this.control + " Scores!");
+      // swap control and kick off
+      if(this.control===this.homeTeam){
+        this.homeTeamPens++;
+      } else {
+        this.awayTeamPens++;
+      }
+     } else {
+      //Intercepting the pass and changing control
+      console.log(this.control + " Misses");
+    }
+  }
+
+  this.penaltyScore = function(){
+    console.log("The Penalty Score is: " + this.homeTeam + " " + this.homeTeamPens +" "+this.awayTeam+" "+this.awayTeamPens);
+  }
+
+  this.randomPenaltyTaker = function(team){
+    var players = [];
+    if(team === this.homeTeam){
+      players = [this.homeTeamDefender , this.homeTeamMidfielder , this.homeTeamAttacker]
+    } else {
+      players = [this.homeTeamDefender , this.homeTeamMidfielder , this.homeTeamAttacker]
+    }
+    var random = Math.random();
+    var i = 0;
+    var j = 0;
+    if(random < 1/3){
+      i = 0;
+    } else if (random < 2/3){
+      i = 1;
+    } else {
+      i = 2;
+    }
+    var random = Math.random();
+    if(random < 0.2){
+      j = 0;
+    } else if (random < 0.4){
+      j = 1;
+    } else if (random < 0.6){
+      j = 2;
+    } else if (random < 0.8){
+      j = 3;
+    } else {
+      j = 4;
+    }
+    if(typeof players[i][j] === "undefined"){
+      this.randomPenaltyTaker(team);
+    } else {
+      taker = players[i][j];
+    }
+    return taker;
+  }
+
     //for loop to take shots
     //home  team first
     //away team second
@@ -331,8 +385,52 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
     //do one penalty each
     //once complete declare a winner to console
     //then change the end status for winner and loser
-  }
+}
 
 
+  this.penalty = function(){
+    console.log("Penalties!!!");
+    for(i = 1; i <= 5; i++){
+      this.control = this.homeTeam;
+      var home = this.randomPenaltyTaker(this.homeTeam);
+      this.penaltyShot(home,this.awayTeamGoalkeeper);
+      this.control = this.awayTeam;
+      var away = this.randomPenaltyTaker(this.awayTeam);
+      this.penaltyShot(away,this.homeTeamGoalkeeper);
+      this.penaltyScore();
+    }
+    if(this.homeTeamPens === this.awayTeamPens){
+      console.log("Sudden Death!!")
+      //carry on until thats not true
+      while(this.homeTeamPens === this.awayTeamPens){
+        this.control = this.homeTeam;
+        var home = this.randomPenaltyTaker(this.homeTeam);
+        this.penaltyShot(home,this.awayTeamGoalkeeper);
+        this.control = this.awayTeam;
+        var away = this.randomPenaltyTaker(this.awayTeam);
+        this.penaltyShot(away,this.homeTeamGoalkeeper);
+        this.penaltyScore();
+      }
+      console.log("We have a winner");
+      if(this.homeTeamPens > this.awayTeamPens){
+        console.log(this.homeTeam + " has won on penalties");
+        this.homeTeamEndStatus = "win"
+        this.awayTeamEndStatus = "lose"
+      } else {
+        console.log(this.awayTeam + " has won on penalties");
+        this.homeTeamEndStatus = "lose"
+        this.awayTeamEndStatus = "win"
+      }
+    } else {
+      if(this.homeTeamPens > this.awayTeamPens){
+        console.log(this.homeTeam + " has won on penalties");
+        this.homeTeamEndStatus = "win"
+        this.awayTeamEndStatus = "lose"
+      } else {
+        console.log(this.awayTeam + " has won on penalties");
+        this.homeTeamEndStatus = "lose"
+        this.awayTeamEndStatus = "win"
+      }
+    }
   }
 }
