@@ -17,6 +17,7 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
   this.flag = flagLoc;
   this.picked = [this.pickedGoalkeepers , this.pickedDefenders , this.pickedMidfielders , this.pickedAttackers]
 
+
   //function to generate players
   this.generatePlayers = function(){
     this.goalkeeperAssignAbility();

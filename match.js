@@ -1,5 +1,5 @@
 //match object
-var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
+var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
   // setting up the basics
   this.homeTeam = homeTeam;
   this.homeTeamGoalkeeper = homeTeamSquad[0];
@@ -19,6 +19,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
   this.played = false;
   this.homeTeamEndStatus;
   this.awayTeamEndStatus;
+  this.stage = stage;
 
   // kick off
   this.kickOff = function(){
