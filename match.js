@@ -295,21 +295,21 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad){
       console.log("The Half Time Score is: " + this.homeTeam + " " + this.homeTeamScore +" "+this.awayTeam+" "+this.awayTeamScore);
     } else {
       console.log("The Score is: " + this.homeTeam + " " + this.homeTeamScore +" "+this.awayTeam+" "+this.awayTeamScore);
-    }
+  }
 
     //function to work assign a winner at the end of the game
-    this.endStatus = function(){
-      if(this.homeTeamScore === this.awayTeamScore){
-        this.homeTeamEndStatus = "draw";
-        this.awayTeamEndStatus = "draw";
-      } else if(this.homeTeamScore > this.awayTeamScore){
-        this.homeTeamEndStatus = "win";
-        this.awayTeamEndStatus = "lose";
-      } else {
-        this.homeTeamEndStatus = "lose";
-        this.awayTeamEndStatus = "win";
-      }
+  this.endStatus = function(){
+    if(this.homeTeamScore === this.awayTeamScore){
+      this.homeTeamEndStatus = "draw";
+      this.awayTeamEndStatus = "draw";
+    } else if(this.homeTeamScore > this.awayTeamScore){
+      this.homeTeamEndStatus = "win";
+      this.awayTeamEndStatus = "lose";
+    } else {
+      this.homeTeamEndStatus = "lose";
+      this.awayTeamEndStatus = "win";
     }
+  }
 
 
 

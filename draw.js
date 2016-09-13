@@ -114,10 +114,10 @@ var Draw = function(){
       console.log(temp);
       console.log(this.groupArray);
       console.log(this.groupArray[i]);
-      for(var j = 0; j < temp.length; i++){
-        var row = new this.tableRow(temp[j]);
-        this.tableArray(i,row);
-      }
+      // for(var j = 0; j < temp.length; i++){
+      //   var row = new this.tableRow(temp[j]);
+      //   this.tableArray(i,row);
+      // }
     }
   }
 
@@ -159,5 +159,26 @@ test.fixtureGenerate();
 // test.groupAMatches[3].kickOff();
 // test.groupAMatches[4].kickOff();
 // test.groupAMatches[5].kickOff();
+
+// test.groupBMatches[0].kickOff();
+// test.groupBMatches[1].kickOff();
+// test.groupBMatches[2].kickOff();
+// test.groupBMatches[3].kickOff();
+// test.groupBMatches[4].kickOff();
+// test.groupBMatches[5].kickOff();
+
+// test.groupCMatches[0].kickOff();
+// test.groupCMatches[1].kickOff();
+// test.groupCMatches[2].kickOff();
+// test.groupCMatches[3].kickOff();
+// test.groupCMatches[4].kickOff();
+// test.groupCMatches[5].kickOff();
+
+// test.groupDMatches[0].kickOff();
+// test.groupDMatches[1].kickOff();
+// test.groupDMatches[2].kickOff();
+// test.groupDMatches[3].kickOff();
+// test.groupDMatches[4].kickOff();
+// test.groupDMatches[5].kickOff();
 
 //test.tableBuild();
