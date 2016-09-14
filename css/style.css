@@ -2,6 +2,93 @@
   display: inline-block;
 }*/
 
+body {
+}
+
+.hide {
+  display: none;
+}
+
+#frontPage {
+  background: green;
+  margin-left: 100px;
+  margin-right: 100px;
+  /*min-height: 900px;*/
+}
+
 #frontPage li {
   list-style-type: none;
+}
+
+#frontPage li img {
+  height: 25px;
+  /*width: 50px;*/
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#frontPage .btn{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header h1 {
+  text-align: center;
+}
+
+#fixtureGroupStage {
+  background: blue;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+  /*min-height: 900px;*/
+}
+
+#fixtureKnockoutStage {
+  background: red;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+  /*min-height: 900px;*/
+}
+
+#teamPick {
+  background: yellow;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+  /*min-height: 900px;*/
+}
+
+#tacticChoice li {
+  display: inline-block;
+  margin: 50px;
+}
+
+#matchScreen {
+  background: orange;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+  /*min-height: 900px;*/
+}
+
+.pitch * {
+  background:green;
+  height: 50px;
+  width: 150px;
+  display: inline-block;
+  margin: 0;
+}
+
+#ball {
+  background: blue;
+}
+
+#communicationPage {
+  background: purple;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+  /*min-height: 900px;*/
 }

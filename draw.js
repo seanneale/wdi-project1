@@ -20,6 +20,7 @@ var Draw = function(){
   this.quarterFinalMatches = [];
   this.semiFinalMatches = [];
   this.finalMatches = [];
+  this.manager = [];
 
 
   this.teamDistribute = function(){
@@ -108,7 +109,7 @@ var Draw = function(){
     this.goalDifference = this.goalsFor - this.goalsAgainst;
     this.points = this.win * 3 + this.draw;
     this.position = 0;
-    this.played;
+    this.played = 0;
   }
 
   //function to build the initial table
@@ -336,77 +337,77 @@ var Draw = function(){
 
 // test.tableBuild();
 
-// test.groupAMatches[0].kickOff();
-// test.tableUpdate(test.groupAMatches[0],test.groupA,test.groupATableUnsorted);
-// test.groupAMatches[1].kickOff();
-// test.tableUpdate(test.groupAMatches[1],test.groupA,test.groupATableUnsorted);
-// test.groupAMatches[2].kickOff();
-// test.tableUpdate(test.groupAMatches[2],test.groupA,test.groupATableUnsorted);
-// test.groupAMatches[3].kickOff();
-// test.tableUpdate(test.groupAMatches[3],test.groupA,test.groupATableUnsorted);
-// test.groupAMatches[4].kickOff();
-// test.tableUpdate(test.groupAMatches[4],test.groupA,test.groupATableUnsorted);
-// test.groupAMatches[5].kickOff();
-// test.tableUpdate(test.groupAMatches[5],test.groupA,test.groupATableUnsorted);
+// game.groupAMatches[0].kickOff();
+// game.tableUpdate(game.groupAMatches[0],game.groupA,game.groupATableUnsorted);
+// game.groupAMatches[1].kickOff();
+// game.tableUpdate(game.groupAMatches[1],game.groupA,game.groupATableUnsorted);
+// game.groupAMatches[2].kickOff();
+// game.tableUpdate(game.groupAMatches[2],game.groupA,game.groupATableUnsorted);
+// game.groupAMatches[3].kickOff();
+// game.tableUpdate(game.groupAMatches[3],game.groupA,game.groupATableUnsorted);
+// game.groupAMatches[4].kickOff();
+// game.tableUpdate(game.groupAMatches[4],game.groupA,game.groupATableUnsorted);
+// game.groupAMatches[5].kickOff();
+// game.tableUpdate(game.groupAMatches[5],game.groupA,game.groupATableUnsorted);
 
-// test.tableSort(test.groupATable,test.groupATableUnsorted,test.groupAMatches);
+// game.tableSort(game.groupATable,game.groupATableUnsorted,game.groupAMatches);
 
-// test.groupBMatches[0].kickOff();
-// test.tableUpdate(test.groupBMatches[0],test.groupB,test.groupBTableUnsorted);
-// test.groupBMatches[1].kickOff();
-// test.tableUpdate(test.groupBMatches[1],test.groupB,test.groupBTableUnsorted);
-// test.groupBMatches[2].kickOff();
-// test.tableUpdate(test.groupBMatches[2],test.groupB,test.groupBTableUnsorted);
-// test.groupBMatches[3].kickOff();
-// test.tableUpdate(test.groupBMatches[3],test.groupB,test.groupBTableUnsorted);
-// test.groupBMatches[4].kickOff();
-// test.tableUpdate(test.groupBMatches[4],test.groupB,test.groupBTableUnsorted);
-// test.groupBMatches[5].kickOff();
-// test.tableUpdate(test.groupBMatches[5],test.groupB,test.groupBTableUnsorted);
+// game.groupBMatches[0].kickOff();
+// game.tableUpdate(game.groupBMatches[0],game.groupB,game.groupBTableUnsorted);
+// game.groupBMatches[1].kickOff();
+// game.tableUpdate(game.groupBMatches[1],game.groupB,game.groupBTableUnsorted);
+// game.groupBMatches[2].kickOff();
+// game.tableUpdate(game.groupBMatches[2],game.groupB,game.groupBTableUnsorted);
+// game.groupBMatches[3].kickOff();
+// game.tableUpdate(game.groupBMatches[3],game.groupB,game.groupBTableUnsorted);
+// game.groupBMatches[4].kickOff();
+// game.tableUpdate(game.groupBMatches[4],game.groupB,game.groupBTableUnsorted);
+// game.groupBMatches[5].kickOff();
+// game.tableUpdate(game.groupBMatches[5],game.groupB,game.groupBTableUnsorted);
 
-// test.tableSort(test.groupBTable,test.groupBTableUnsorted,test.groupBMatches);
+// game.tableSort(game.groupBTable,game.groupBTableUnsorted,game.groupBMatches);
 
-// test.groupCMatches[0].kickOff();
-// test.tableUpdate(test.groupCMatches[0],test.groupC,test.groupCTableUnsorted);
-// test.groupCMatches[1].kickOff();
-// test.tableUpdate(test.groupCMatches[1],test.groupC,test.groupCTableUnsorted);
-// test.groupCMatches[2].kickOff();
-// test.tableUpdate(test.groupCMatches[2],test.groupC,test.groupCTableUnsorted);
-// test.groupCMatches[3].kickOff();
-// test.tableUpdate(test.groupCMatches[3],test.groupC,test.groupCTableUnsorted);
-// test.groupCMatches[4].kickOff();
-// test.tableUpdate(test.groupCMatches[4],test.groupC,test.groupCTableUnsorted);
-// test.groupCMatches[5].kickOff();
-// test.tableUpdate(test.groupCMatches[5],test.groupC,test.groupCTableUnsorted);
+// game.groupCMatches[0].kickOff();
+// game.tableUpdate(game.groupCMatches[0],game.groupC,game.groupCTableUnsorted);
+// game.groupCMatches[1].kickOff();
+// game.tableUpdate(game.groupCMatches[1],game.groupC,game.groupCTableUnsorted);
+// game.groupCMatches[2].kickOff();
+// game.tableUpdate(game.groupCMatches[2],game.groupC,game.groupCTableUnsorted);
+// game.groupCMatches[3].kickOff();
+// game.tableUpdate(game.groupCMatches[3],game.groupC,game.groupCTableUnsorted);
+// game.groupCMatches[4].kickOff();
+// game.tableUpdate(game.groupCMatches[4],game.groupC,game.groupCTableUnsorted);
+// game.groupCMatches[5].kickOff();
+// game.tableUpdate(game.groupCMatches[5],game.groupC,game.groupCTableUnsorted);
 
-// test.tableSort(test.groupCTable,test.groupCTableUnsorted,test.groupCMatches);
+// game.tableSort(game.groupCTable,game.groupCTableUnsorted,game.groupCMatches);
 
-// test.groupDMatches[0].kickOff();
-// test.tableUpdate(test.groupDMatches[0],test.groupD,test.groupDTableUnsorted);
-// test.groupDMatches[1].kickOff();
-// test.tableUpdate(test.groupDMatches[1],test.groupD,test.groupDTableUnsorted);
-// test.groupDMatches[2].kickOff();
-// test.tableUpdate(test.groupDMatches[2],test.groupD,test.groupDTableUnsorted);
-// test.groupDMatches[3].kickOff();
-// test.tableUpdate(test.groupDMatches[3],test.groupD,test.groupDTableUnsorted);
-// test.groupDMatches[4].kickOff();
-// test.tableUpdate(test.groupDMatches[4],test.groupD,test.groupDTableUnsorted);
-// test.groupDMatches[5].kickOff();
-// test.tableUpdate(test.groupDMatches[5],test.groupD,test.groupDTableUnsorted);
+// game.groupDMatches[0].kickOff();
+// game.tableUpdate(game.groupDMatches[0],game.groupD,game.groupDTableUnsorted);
+// game.groupDMatches[1].kickOff();
+// game.tableUpdate(game.groupDMatches[1],game.groupD,game.groupDTableUnsorted);
+// game.groupDMatches[2].kickOff();
+// game.tableUpdate(game.groupDMatches[2],game.groupD,game.groupDTableUnsorted);
+// game.groupDMatches[3].kickOff();
+// game.tableUpdate(game.groupDMatches[3],game.groupD,game.groupDTableUnsorted);
+// game.groupDMatches[4].kickOff();
+// game.tableUpdate(game.groupDMatches[4],game.groupD,game.groupDTableUnsorted);
+// game.groupDMatches[5].kickOff();
+// game.tableUpdate(game.groupDMatches[5],game.groupD,game.groupDTableUnsorted);
 
-// test.tableSort(test.groupDTable,test.groupDTableUnsorted,test.groupDMatches);
+// game.tableSort(game.groupDTable,game.groupDTableUnsorted,game.groupDMatches);
 
-// test.quarterFinalGenerate();
-// test.quarterFinalMatches[0].kickOff();
-// test.quarterFinalMatches[1].kickOff();
-// test.quarterFinalMatches[2].kickOff();
-// test.quarterFinalMatches[3].kickOff();
+// game.quarterFinalGenerate();
+// game.quarterFinalMatches[0].kickOff();
+// game.quarterFinalMatches[1].kickOff();
+// game.quarterFinalMatches[2].kickOff();
+// game.quarterFinalMatches[3].kickOff();
 
-// test.semiFinalGenerate();
+// game.semiFinalGenerate();
 
-// test.semiFinalMatches[0].kickOff();
-// test.semiFinalMatches[1].kickOff();
+// game.semiFinalMatches[0].kickOff();
+// game.semiFinalMatches[1].kickOff();
 
-// test.finalGenerate();
+// game.finalGenerate();
 
-// test.finalMatches[0].kickOff();
+// game.finalMatches[0].kickOff();

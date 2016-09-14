@@ -5,40 +5,446 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
+  <header>
+    <h1>World Cup Manager!</h1>
+  </header>
   <div id='frontPage'>
-    <div class='row nameEntry'>
-      <h1>Enter Player Name:</h1>
-    </div>
+    <div class='row'>
+      <div class="form-group">
+        <label for="example-text-input" class="col-xs-2 col-form-label">Player Name</label>
+          <div class="col-xs-10">
+            <input class="form-control" type="text" placeholder="Enter Your Name Here" id="nameEntry">
+          </div>
+        </div>
+      </div>
     <div class='row countrySelect'>
       <div class='col-md-6'>
         <ul>
-          <li><img href=Images/Flag_of_Algeria.svg.png><h3>Algeria</h3></li>
-          <li><h3>Argentina</h3></li>
-          <li><h3>Australia</h3></li>
-          <li><h3>Brazil</h3></li>
-          <li><h3>Chile</h3></li>
-          <li><h3>England</h3></li>
-          <li><h3>France</h3></li>
-          <li><h3>Germany</h3></li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Algeria"><img src='Images/Flag_of_Algeria.svg.png'><span>Algeria</span></label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Argentina"><img src='Images/Flag_of_Argentina.svg.png'>Argentina</label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Australia"><img src='Images/Flag_of_Australia_(converted).svg.png'>Australia</label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Brazil"><img src='Images/720px-Flag_of_Brazil.svg.png'>Brazil</label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Chile"><img src='Images/1024px-Flag_of_Chile.svg.png'>Chile</label></label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="England"><img src='Images/800px-Flag_of_England.svg.png'>England</label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="France"><img src='Images/Flag_of_France.svg.png'>France</label></label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Germany"><img src='Images/1000px-Flag_of_Germany.svg.png'>Germany</label>
+            </div>
+          </li>
         </ul>
       </div>
       <div class='col-md-6'>
         <ul>
-          <li><h3>Ghana</h3></li>
-          <li><h3>Ivory Coast</h3></li>
-          <li><h3>Japan</h3></li>
-          <li><h3>Mexico</h3></li>
-          <li><h3>Republic Of Ireland</h3></li>
-          <li><h3>South Korea</h3></li>
-          <li><h3>Spain</h3></li>
-          <li><h3>USA</h3></li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Ghana"><img src='Images/Flag_of_Ghana.svg.png'>Ghana</label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Ivory Coast"><img src="Images/Flag_of_Côte_d'Ivoire.svg.png">Ivory Coast</label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Japan"><img src='Images/900px-Flag_of_Japan.svg.png'>Japan</label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Mexico"><img src='Images/Flag_of_Mexico.svg.png'>Mexico</label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Republic Of Ireland"><img src='Images/Flag_of_Ireland.svg.png'>Republic of Ireland</label></label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="South Korea"><img src='Images/Flag_of_South_Korea.svg.png'>South Korea</label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="Spain"><img src='Images/Flag_of_Spain.svg.png'>Spain</label>
+            </div>
+          </li>
+          <li>
+            <div class="radio">
+              <label><input type="radio" name="optradio" value="USA"><img src='Images/Flag_of_the_United_States.svg.png'>USA</label>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
     <div class='row'>
-      <button type="button" class="btn btn-default">Start Game</button>
+      <button type="button" class="btn btn-default" id="startGame">Start Game</button>
+    </div>
+  </div>
+
+
+
+
+  <div id='fixtureGroupStage' class='hide'>
+    <div class='row'>
+      <h1>Fixtures and Results</h1>
+    </div>
+    <div class='row'>
+      <h2>Group Stage</h2>
+    </div>
+    <div class='row'>
+      <div class='group' id='groupA'>
+        <div class='col-md-6'>
+          <h3>Group A</h3>
+          <p>Team01 vs Team02</p>
+          <p>Team03 vs Team04</p>
+          <p>Team01 vs Team03</p>
+          <p>Team02 vs Team04</p>
+          <p>Team01 vs Team04</p>
+          <p>Team02 vs Team03</p>
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <td>Team</td>
+                <td>Games Played</td>
+                <td>Won</td>
+                <td>Draw</td>
+                <td>Lost</td>
+                <td>Goals For</td>
+                <td>Goals Against</td>
+                <td>Goal Difference</td>
+                <td>Points</td>
+              </tr>
+              <tr>
+                <td>Team01</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team02</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team03</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team04</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class='group' id='groupB'>
+        <div class='col-md-6'>
+          <h3>Group B</h3>
+          <p>Team01 vs Team02</p>
+          <p>Team03 vs Team04</p>
+          <p>Team01 vs Team03</p>
+          <p>Team02 vs Team04</p>
+          <p>Team01 vs Team04</p>
+          <p>Team02 vs Team03</p>
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <td>Team</td>
+                <td>Games Played</td>
+                <td>Won</td>
+                <td>Draw</td>
+                <td>Lost</td>
+                <td>Goals For</td>
+                <td>Goals Against</td>
+                <td>Goal Difference</td>
+                <td>Points</td>
+              </tr>
+              <tr>
+                <td>Team01</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team02</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team03</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team04</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='group' id='groupC'>
+        <div class='col-md-6'>
+          <h3>Group C</h3>
+          <p>Team01 vs Team02</p>
+          <p>Team03 vs Team04</p>
+          <p>Team01 vs Team03</p>
+          <p>Team02 vs Team04</p>
+          <p>Team01 vs Team04</p>
+          <p>Team02 vs Team03</p>
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <td>Team</td>
+                <td>Games Played</td>
+                <td>Won</td>
+                <td>Draw</td>
+                <td>Lost</td>
+                <td>Goals For</td>
+                <td>Goals Against</td>
+                <td>Goal Difference</td>
+                <td>Points</td>
+              </tr>
+              <tr>
+                <td>Team01</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team02</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team03</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team04</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+      <div class='group' id='groupD'>
+        <div class='col-md-6'>
+          <h3>Group D</h3>
+          <p>Team01 vs Team02</p>
+          <p>Team03 vs Team04</p>
+          <p>Team01 vs Team03</p>
+          <p>Team02 vs Team04</p>
+          <p>Team01 vs Team04</p>
+          <p>Team02 vs Team03</p>
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <td>Team</td>
+                <td>Games Played</td>
+                <td>Won</td>
+                <td>Draw</td>
+                <td>Lost</td>
+                <td>Goals For</td>
+                <td>Goals Against</td>
+                <td>Goal Difference</td>
+                <td>Points</td>
+              </tr>
+              <tr>
+                <td>Team01</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team02</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team03</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Team04</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+      <button type="button" class="btn btn-default" id="fixtureGroupContinue">Contine</button>
+    </div>
+  </div>
+
+
+
+
+  <div id='fixtureKnockoutStage' class='hide'>
+    <div class='row'>
+      <h1>Fixtures and Results</h1>
+    </div>
+    <div class='row'>
+      <h2>Quarter Final</h2>
+    </div>
+    <div class='row'>
+      <p>Team01 vs Team02</p>
+      <p>Team03 vs Team04</p>
+      <p>Team05 vs Team06</p>
+      <p>Team07 vs Team08</p>
+    </div>
+    <div class='row'>
+      <h2>Semi Final</h2>
+    </div>
+    <div class='row'>
+      <p>Team01 vs Team02</p>
+      <p>Team03 vs Team04</p>
+    </div>
+    <div class='row'>
+      <h2>Final</h2>
+    </div>
+    <div class='row'>
+      <p>Team01 vs Team02</p>
     </div>
   </div>
 
@@ -46,12 +452,222 @@
 
 
 
+  <div id='teamPick' class='hide'>
+    <div class='row'>
+      <h1>Team Name Here</h1>
+    </div>
+    <div class='row'>
+      <ul id='tacticChoice'>
+        <li>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optradio" value="4-4-2">4-4-2
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optradio" value="5-3-2">5-3-2
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optradio" value="4-5-1">4-5-1
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optradio" value="4-3-3">4-3-3
+            </label>
+          </div>
+        </li>
+    </div>
+    <div class='row'>
+      <div class='col-md-4'>
+        <h3>Goalkeepers</h3>
+        <div class="table-responsive">
+          <table class="table" id="goalkeepers">
+            <tr>
+              <td>Name</td>
+              <td>Ability</td>
+            </tr>
+          </table>
+        </div>
+        <h3>Defenders</h3>
+        <div class="table-responsive">
+          <table class="table" id="defenders">
+            <tr>
+              <td>Name</td>
+              <td>Defending Ability</td>
+              <td>Attacking Ability</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class='col-md-4'>
+        <h3>Midfielders</h3>
+        <div class="table-responsive">
+          <table class="table" id="midfielders">
+            <tr>
+              <td>Name</td>
+              <td>Defending Ability</td>
+              <td>Attacking Ability</td>
+            </tr>
+          </table>
+        </div>
+
+        <h3>Attackers</h3>
+        <div class="table-responsive">
+          <table class="table" id="attackers">
+            <tr>
+              <td>Name</td>
+              <td>Defending Ability</td>
+              <td>Attacking Ability</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class='col-md-4'>
+        <div id="tacticImage">
+          <img src="Images/4-4-2.png">
+        </div>
+      </div>
+      <div class='row'>
+        <button type="button" class="btn btn-default" id="teamPickContinue">Contine</button>
+      </div>
+    </div>
+  </div>
 
 
 
 
 
+  <div id='matchScreen' class='hide'>
+    <div class='row'>
+      <div class='col-md-5'>
+        <h1>Home Team</h1>
+      </div>
+      <div class='col-md-1'>
+        <h1>0</h1>
+      </div>
+      <div class='col-md-1'>
+        <h1>0</h1>
+      </div>
+      <div class='col-md-5'>
+        <h1>Away Team</h1>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='pitch'>
+        <div></div><div></div><div></div><div id='ball'></div><div></div><div></div><div></div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-8'>
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <td>10</td>
+              <td>Home Team has passed succesfully</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Home Team has passed succesfully</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Home Team has passed succesfully</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Home Team has passed succesfully</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Home Team has passed succesfully</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Home Team has passed succesfully</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Home Team has passed succesfully</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Home Team has passed succesfully</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Home Team has passed succesfully</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Home Team has passed succesfully</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>The game kicks off</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class='col-md-4'>
+        <div>
+          <h3>Home Team</h3>
+          <ul>
+            <li>Home Team Player</li>
+            <li>Home Team Player</li>
+            <li>Home Team Player</li>
+            <li>Home Team Player</li>
+            <li>Home Team Player</li>
+            <li>Home Team Player</li>
+            <li>Home Team Player</li>
+            <li>Home Team Player</li>
+            <li>Home Team Player</li>
+            <li>Home Team Player</li>
+            <li>Home Team Player</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Away Team</h3>
+          <ul>
+            <li>Away Team Player</li>
+            <li>Away Team Player</li>
+            <li>Away Team Player</li>
+            <li>Away Team Player</li>
+            <li>Away Team Player</li>
+            <li>Away Team Player</li>
+            <li>Away Team Player</li>
+            <li>Away Team Player</li>
+            <li>Away Team Player</li>
+            <li>Away Team Player</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
+
+
+  <div id='communicationPage' class='hide'>
+    <div class='row'>
+      <h1>Welcome To The Game [New Player]</h1>
+        <div class='row'>
+          <button type="button" class="btn btn-default" id="commContinue">Contine</button>
+        </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>DO NOT REFRESH YOUR PAGE</p>
+  </footer>
 
 
 
@@ -73,5 +689,6 @@
   <script type="text/javascript" src="player.js"></script>
   <script type="text/javascript" src="squad.js"></script>
   <script type="text/javascript" src="draw.js"></script>
+  <script type="text/javascript" src="gameflow.js"></script>
 </body>
 </html>
