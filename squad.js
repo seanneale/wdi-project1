@@ -304,7 +304,7 @@ var germany = new squad ('Germany', 'german', [
   ] , [
     ['Sami' , 'Khedira']  , ['Bastian' , 'Schweinsteiger'] , ['Mesut' , 'Ozil'] , ['Andre' , 'Schurrle'] , ['Julian' , 'Draxler'] , ['Emre' , 'Can'] , ['Julian' , 'Weigl'] , ['Toni' , 'Kroos'] , ['Mario' , 'Gotze'] , ['Leroy' , 'Sane']
   ] , [
-    ['Lukas Podolski'] , ['Thomas' , 'Muller'] , ['Mario' , 'Gomez']
+    ['Lukas' , 'Podolski'] , ['Thomas' , 'Muller'] , ['Mario' , 'Gomez']
   ] );
 
 germany.generatePlayers();
@@ -315,7 +315,7 @@ var france = new squad ('France', 'french', [
   ] , [
     ['Christophe' , 'Jallet'] , ['Patrice' , 'Evra'] , ['Adil' , 'Rami'] , ['Eliaquim' , 'Mangala'] , ['Lucas' , 'Digne'] , ['Bacary' , 'Sagna'] , ['Laurent' , 'Koscielny'] , ['Samuel' , 'Umtiti']
   ] , [
-    ["N'Golo" , 'Kante']  , ['Yohan' , 'Cabaye'] , ['Dimitri' , 'Payet'] , ['Morgan Schneiderlin'] , ['Blaise Matuidi'] , ['Paul Pogba'] , ['Moussa Sissoko']
+    ["N'Golo" , 'Kante']  , ['Yohan' , 'Cabaye'] , ['Dimitri' , 'Payet'] , ['Morgan Schneiderlin'] , ['Blaise' , 'Matuidi'] , ['Paul Pogba'] , ['Moussa Sissoko']
   ] , [
     ['Antoine' , 'Griezmann'] , ['Olivier' , 'Giroud'] , ['André-Pierre' , 'Gignac'] , ['Anthony' , 'Martial'] , ['Kingsley' , 'Coman']
   ] );

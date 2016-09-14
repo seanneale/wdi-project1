@@ -22,11 +22,32 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
   this.stage = stage;
   this.homeTeamPens = 0;
   this.awayTeamPens = 0;
+  this.viewed = false;
 
+  //function to add text to matchscreen
+  this.updateMatchScreen = function(text){
+    if(this.viewed===true){
+      //create element
+      var newRow = document.createElement("tr");
+      //add html to element
+      $(newRow).html("<td>"+this.clock+"</td><td>"+text+"</td>");
+      //prepend element
+      $('#matchScreen table').delay(10000).prepend(newRow);
+    }
+  }
+
+  //function to update the score when a goal is scored
+  this.updateScoreBoard = function(){
+    if(this.viewed===true){
+      var banner = $('#scoreBanner h1:nth-child(1)');
+      $(banner[1]).text(this.homeTeamScore);
+      $(banner[2]).text(this.awayTeamScore);
+    }
+  }
   // kick off
   this.kickOff = function(){
     this.possessionZone = 4;
-    console.log(this.control + " are kicking off");
+    this.updateMatchScreen(this.control + " are kicking off")
     this.pass();
   };
 
@@ -191,7 +212,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
     if(this.clock === 45){
       //stop the game
       //give a score update
-      console.log("Half Time!")
+      this.updateMatchScreen("Half Time!");
       this.score();
       //change control to away team
       this.control = this.awayTeam;
@@ -200,7 +221,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
     } else if(this.clock===90){
       //stop the game
       //give a score update
-      console.log("Full Time!")
+      this.updateMatchScreen("Full Time!");
       this.score();
       this.played = true;
       this.endStatus();
@@ -214,7 +235,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
       var pass = Math.random();
       //reacting to random number
       if(pass <= midPoint){
-        console.log(this.control + " Pass Successful!");
+        this.updateMatchScreen(this.control + " Pass Successful!");
         // change possesion zone and check if we can shoot
         if(this.control === this.homeTeam){
           //create a function which stops the possession zone going greater than 7 and less than 1
@@ -235,7 +256,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
 
       } else {
         //Intercepting the pass and changing control
-        console.log(this.control + " Pass Intercepted!");
+        this.updateMatchScreen(this.control + " Pass Intercepted!");
         this.swapControl();
         this.pass();
       }
@@ -244,7 +265,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
 
   // shoot function
   this.shoot = function(){
-    console.log(this.control + " Shoot!");
+    this.updateMatchScreen(this.control + " Shoot!");
     //calculate odds
     if(this.control === this.homeTeam){
       var attacker = this.randomPlayer(this.homeTeamAttacker);
@@ -260,13 +281,14 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
     var pass = Math.random();
     //reacting to random number
     if(pass <= midPoint){
-      console.log(this.control + " Scores!");
+      this.updateMatchScreen(this.control + " Scores!");
       // swap control and kick off
       if(this.control===this.homeTeam){
         this.homeTeamScore++;
       } else {
         this.awayTeamScore++;
       }
+      this.updateScoreBoard();
       //swap control
       this.swapControl();
       this.score();
@@ -274,7 +296,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
       this.kickOff();
      } else {
       //Intercepting the pass and changing control
-      console.log(this.control + " Misses");
+      this.updateMatchScreen(this.control + " Misses");
       this.swapControl();
       this.pass();
     }
@@ -295,11 +317,11 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
 
   this.score = function(){
     if(this.clock >= 90){
-      console.log("The Final Score is: " + this.homeTeam + " " + this.homeTeamScore +" "+this.awayTeam+" "+this.awayTeamScore);
+      this.updateMatchScreen("The Final Score is: " + this.homeTeam + " " + this.homeTeamScore +" "+this.awayTeam+" "+this.awayTeamScore);
     } else if (this.clock === 45){
-      console.log("The Half Time Score is: " + this.homeTeam + " " + this.homeTeamScore +" "+this.awayTeam+" "+this.awayTeamScore);
+      this.updateMatchScreen("The Half Time Score is: " + this.homeTeam + " " + this.homeTeamScore +" "+this.awayTeam+" "+this.awayTeamScore);
     } else {
-      console.log("The Score is: " + this.homeTeam + " " + this.homeTeamScore +" "+this.awayTeam+" "+this.awayTeamScore);
+      this.updateMatchScreen("The Score is: " + this.homeTeam + " " + this.homeTeamScore +" "+this.awayTeam+" "+this.awayTeamScore);
   }
 
     //function to work assign a winner at the end of the game
@@ -322,7 +344,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
     var pass = Math.random();
     //reacting to random number
     if(pass <= midPoint){
-      console.log(this.control + " Scores!");
+      this.updateMatchScreen(this.control + " Scores!")
       // swap control and kick off
       if(this.control===this.homeTeam){
         this.homeTeamPens++;
@@ -331,12 +353,12 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
       }
      } else {
       //Intercepting the pass and changing control
-      console.log(this.control + " Misses");
+      this.updateMatchScreen(this.control + " Misses");
     }
   }
 
   this.penaltyScore = function(){
-    console.log("The Penalty Score is: " + this.homeTeam + " " + this.homeTeamPens +" "+this.awayTeam+" "+this.awayTeamPens);
+    this.updateMatchScreen("The Penalty Score is: " + this.homeTeam + " " + this.homeTeamPens +" "+this.awayTeam+" "+this.awayTeamPens);
   }
 
   this.randomPenaltyTaker = function(team){
@@ -389,7 +411,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
 
 
   this.penalty = function(){
-    console.log("Penalties!!!");
+    this.updateMatchScreen("Penalties!!!");
     for(i = 1; i <= 5; i++){
       this.control = this.homeTeam;
       var home = this.randomPenaltyTaker(this.homeTeam);
@@ -400,7 +422,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
       this.penaltyScore();
     }
     if(this.homeTeamPens === this.awayTeamPens){
-      console.log("Sudden Death!!")
+      this.updateMatchScreen("Sudden Death!!");
       //carry on until thats not true
       while(this.homeTeamPens === this.awayTeamPens){
         this.control = this.homeTeam;
@@ -411,23 +433,23 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
         this.penaltyShot(away,this.homeTeamGoalkeeper);
         this.penaltyScore();
       }
-      console.log("We have a winner");
+      this.updateMatchScreen("We have a winner");
       if(this.homeTeamPens > this.awayTeamPens){
-        console.log(this.homeTeam + " has won on penalties");
+        this.updateMatchScreen(this.homeTeam + " has won on penalties");
         this.homeTeamEndStatus = "win"
         this.awayTeamEndStatus = "lose"
       } else {
-        console.log(this.awayTeam + " has won on penalties");
+        this.updateMatchScreen(this.awayTeam + " has won on penalties");
         this.homeTeamEndStatus = "lose"
         this.awayTeamEndStatus = "win"
       }
     } else {
       if(this.homeTeamPens > this.awayTeamPens){
-        console.log(this.homeTeam + " has won on penalties");
+        this.updateMatchScreen(this.homeTeam + " has won on penalties");
         this.homeTeamEndStatus = "win"
         this.awayTeamEndStatus = "lose"
       } else {
-        console.log(this.awayTeam + " has won on penalties");
+        this.updateMatchScreen(this.awayTeam + " has won on penalties");
         this.homeTeamEndStatus = "lose"
         this.awayTeamEndStatus = "win"
       }

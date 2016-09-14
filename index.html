@@ -546,9 +546,9 @@
 
 
 
-
+<!--  -->
   <div id='matchScreen' class='hide'>
-    <div class='row'>
+    <div class='row' id='scoreBanner'>
       <div class='col-md-5'>
         <h1>Home Team</h1>
       </div>
@@ -570,55 +570,15 @@
     <div class='row'>
       <div class='col-md-8'>
         <div class="table-responsive">
-          <table class="table">
-            <tr>
-              <td>10</td>
-              <td>Home Team has passed succesfully</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>Home Team has passed succesfully</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Home Team has passed succesfully</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Home Team has passed succesfully</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Home Team has passed succesfully</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Home Team has passed succesfully</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Home Team has passed succesfully</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Home Team has passed succesfully</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Home Team has passed succesfully</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Home Team has passed succesfully</td>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>The game kicks off</td>
-            </tr>
+          <table class="table" id="matchFeed">
+            <td>
+            </td>
+            <td>
+            </td>
           </table>
         </div>
       </div>
-      <div class='col-md-4'>
+      <div class='col-md-4' id='teamSheet'>
         <div>
           <h3>Home Team</h3>
           <ul>
@@ -648,9 +608,13 @@
             <li>Away Team Player</li>
             <li>Away Team Player</li>
             <li>Away Team Player</li>
+            <li>Away Team Player</li>
           </ul>
         </div>
       </div>
+    </div>
+    <div class='row'>
+      <button type="button" class="btn btn-default" id="matchScreenBtn">Start Match</button>
     </div>
   </div>
 
