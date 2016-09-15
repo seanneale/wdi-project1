@@ -98,8 +98,12 @@ function fixturePageBuildKnockout(){
 function buildingMatchScreen(match){
   match.viewed = true;
   console.log(match);
+  //removing old match feed
+  $('.removable').remove();
   var banner = $('#scoreBanner h1:nth-child(1)');
   $(banner[0]).text(match.homeTeam);
+  $(banner[1]).text(0);
+  $(banner[2]).text(0);
   $(banner[3]).text(match.awayTeam);
   var teamSheet = $('#teamSheet h3');
   $(teamSheet[0]).text(match.homeTeam);
@@ -118,42 +122,65 @@ function buildingMatchScreen(match){
     $(teamList[i]).text(squadOne[i].firstName+' '+squadOne[i].lastName);
     $(teamList[j]).text(squadTwo[i].firstName+' '+squadTwo[i].lastName);
   }
+  currentMatch = match;
   $('#matchScreenBtn').click(function(){
-    $('#matchScreenBtn').text('Match Playing');
-    $('#matchScreenBtn').prop('disabled', true);
-    console.log(match);
-    match.kickOff();
-    console.log(match);
-
-
-    $('#matchScreenBtn').prop('disabled', false);
-    $('#matchScreenBtn').text('Continue');
     //adding a class to be listened for all the time
     //make sure once clicked the class is removed
-    $('#matchScreenBtn').attr('id', 'matchScreenContinue');
+    $('#matchScreenBtn').addClass('hide');
+    currentMatch.kickOff();
+    $('#matchScreenContinue').removeClass('hide');
   })
 }
 
-function puttingPlayersIntoTeam(gk,def,mid,att,nationChoice,game){
+function puttingPlayersIntoTeam(gk,def,mid,att,nationChoice,game,counter){
   //find the game in question
   var i = 1;
   var match = "";
   var focus = "";
   var team = "";
+
   while(i <= 4){
-    if(i === 1){
-      focus = game.groupAMatches;
-    } else if(i === 2){
-      focus = game.groupBMatches;
-    } else if(i === 3){
-      focus = game.groupCMatches;
-    } else if(i === 4){
-      focus = game.groupDMatches;
+    if (counter === 0){
+      var a = 0;
+      var b = 1;
+      if(i === 1){
+        focus = game.groupAMatches;
+      } else if(i === 2){
+        focus = game.groupBMatches;
+      } else if(i === 3){
+        focus = game.groupCMatches;
+      } else if(i === 4){
+        focus = game.groupDMatches;
+      }
+    } else if (counter === 1){
+      var a = 2;
+      var b = 3;
+      if(i === 1){
+        focus = game.groupAMatches;
+      } else if(i === 2){
+        focus = game.groupBMatches;
+      } else if(i === 3){
+        focus = game.groupCMatches;
+      } else if(i === 4){
+        focus = game.groupDMatches;
+      }
+    } else if (counter === 2){
+      var a = 4;
+      var b = 5;
+      if(i === 1){
+        focus = game.groupAMatches;
+      } else if(i === 2){
+        focus = game.groupBMatches;
+      } else if(i === 3){
+        focus = game.groupCMatches;
+      } else if(i === 4){
+        focus = game.groupDMatches;
+      }
     }
-    if(nationChoice === focus[0].homeTeam || nationChoice === focus[0].awayTeam){
-      match = focus[0];
-    }else if(nationChoice === focus[1].homeTeam || nationChoice === focus[1].awayTeam){
-      match = focus[1];
+    if(nationChoice === focus[a].homeTeam || nationChoice === focus[a].awayTeam){
+      match = focus[a];
+    }else if(nationChoice === focus[b].homeTeam || nationChoice === focus[b].awayTeam){
+      match = focus[b];
     }
     i++;
   }
@@ -250,7 +277,7 @@ function puttingPlayersIntoTeam(gk,def,mid,att,nationChoice,game){
   $('#teamPick').addClass('hide');
 }
 
-function checkingTeamSelection(tactic,nationChoice,game){
+function checkingTeamSelection(tactic,nationChoice,game,counter){
   var defNo = 0;
   var midNo = 0;
   var attNo = 0;
@@ -308,7 +335,7 @@ function checkingTeamSelection(tactic,nationChoice,game){
           alert("too many attackers");
         } else {
           tactic=0;
-          puttingPlayersIntoTeam(goalkeepersChosen,defendersChosen,midfieldersChosen,attackersChosen,nationChoice,game);
+          puttingPlayersIntoTeam(goalkeepersChosen,defendersChosen,midfieldersChosen,attackersChosen,nationChoice,game,counter);
         }
       }
     }
@@ -405,7 +432,9 @@ $(document).ready(
       fixturePageBuildGroup(game,counter);
     })
 
-
+    var playedMatch ="";
+    var playedGroup = "";
+    var playedUnsrtTable = "";
 
     $('#fixtureGroupContinue').click(function(e){
       e.preventDefault();
@@ -451,6 +480,8 @@ $(document).ready(
         $('#attackers').append(newTableRow);
       }
 
+
+
       if(counter === 0){
         var i=1;
         while(i <= 4){
@@ -475,6 +506,9 @@ $(document).ready(
             if(nationChoice === focus[j].homeTeam || nationChoice === focus[j].awayTeam){
               $('#fixtureGroupStage').addClass('hide');
               $('#teamPick').removeClass('hide');
+              playedMatch = focus[j];
+              playedGroup = group;
+              playedUnsrtTable = unsrtTable;
             } else {
               focus[j].kickOff();
               game.tableUpdate(focus[j],group,unsrtTable);
@@ -483,12 +517,98 @@ $(document).ready(
           }
           i++;
         }
+      } else if (counter === 1){
+        var i=1;
+        while(i <= 4){
+          if(i === 1){
+            focus = game.groupAMatches;
+            unsrtTable = game.groupATableUnsorted;
+            group = game.groupA;
+          } else if(i === 2){
+            focus = game.groupBMatches;
+            unsrtTable = game.groupBTableUnsorted;
+            group = game.groupB;
+          } else if(i === 3){
+            focus = game.groupCMatches;
+            unsrtTable = game.groupCTableUnsorted;
+            group = game.groupC;
+          } else if(i === 4){
+            focus = game.groupDMatches;
+            unsrtTable = game.groupDTableUnsorted;
+            group = game.groupD;
+          }
+          for(var j = 2; j <= 3; j++){
+            if(nationChoice === focus[j].homeTeam || nationChoice === focus[j].awayTeam){
+              $('#fixtureGroupStage').addClass('hide');
+              $('#teamPick').removeClass('hide');
+              playedMatch = focus[j];
+              playedGroup = group;
+              playedUnsrtTable = unsrtTable;
+            } else {
+              focus[j].kickOff();
+              game.tableUpdate(focus[j],group,unsrtTable);
+            }
+          }
+          i++;
+        }
+
+      } else if (counter === 2){
+        var i=1;
+        while(i <= 4){
+          if(i === 1){
+            focus = game.groupAMatches;
+            unsrtTable = game.groupATableUnsorted;
+            group = game.groupA;
+          } else if(i === 2){
+            focus = game.groupBMatches;
+            unsrtTable = game.groupBTableUnsorted;
+            group = game.groupB;
+          } else if(i === 3){
+            focus = game.groupCMatches;
+            unsrtTable = game.groupCTableUnsorted;
+            group = game.groupC;
+          } else if(i === 4){
+            focus = game.groupDMatches;
+            unsrtTable = game.groupDTableUnsorted;
+            group = game.groupD;
+          }
+          for(var j = 4; j <= 5; j++){
+            if(nationChoice === focus[j].homeTeam || nationChoice === focus[j].awayTeam){
+              $('#fixtureGroupStage').addClass('hide');
+              $('#teamPick').removeClass('hide');
+              playedMatch = focus[j];
+              playedGroup = group;
+              playedUnsrtTable = unsrtTable;
+            } else {
+              focus[j].kickOff();
+              game.tableUpdate(focus[j],group,unsrtTable);
+            }
+          }
+          i++;
+        }
+
+      } else if (counter === 3){
+        while(i <= 4){
+          if(i === 1){
+            focus = game.groupATable;
+          } else if(i === 2){
+            focus = game.groupBTable;
+          } else if(i === 3){
+            focus = game.groupCTable;
+          } else if(i === 4){
+            focus = game.groupDTable;
+          }
+        }
+        console.log(focus);
+
+
+
+
+
       }
-      game.tableSort(game.groupATable,game.groupATableUnsorted,game.groupAMatches);
-      game.tableSort(game.groupBTable,game.groupBTableUnsorted,game.groupBMatches);
-      game.tableSort(game.groupCTable,game.groupCTableUnsorted,game.groupCMatches);
-      game.tableSort(game.groupDTable,game.groupDTableUnsorted,game.groupDMatches);
+
     })
+
 
     var tactic = 0;
     $('#tacticChoice').on("change",function(e){
@@ -512,9 +632,31 @@ $(document).ready(
       if(tactic === 0){
         alert("please choose a formation");
       } else {
-        checkingTeamSelection(tactic,nationChoice,game);
+        checkingTeamSelection(tactic,nationChoice,game,counter);
       }
     })
+
+
+    //add listen button to match screen continue
+    $('#matchScreenContinue').click(function(){
+      //change attr back to match screen start
+      $('#matchScreenBtn').removeClass('hide');
+      $('#matchScreenContinue').addClass('hide');
+      counter++;
+      //recalculate tables
+      game.tableUpdate(playedMatch,playedGroup,playedUnsrtTable);
+      game.tableSort(game.groupATable,game.groupATableUnsorted,game.groupAMatches);
+      game.tableSort(game.groupBTable,game.groupBTableUnsorted,game.groupBMatches);
+      game.tableSort(game.groupCTable,game.groupCTableUnsorted,game.groupCMatches);
+      game.tableSort(game.groupDTable,game.groupDTableUnsorted,game.groupDMatches);
+      //rebuild fixtures page
+      fixturePageBuildGroup(game,counter);
+      //hide match screen
+      $('#matchScreen').addClass('hide');
+      //display fixtures
+      $('#fixtureGroupStage').removeClass('hide');
+    })
+
   }
 
 );

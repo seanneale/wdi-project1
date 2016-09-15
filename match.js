@@ -30,7 +30,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
       //create element
       var newRow = document.createElement("tr");
       //add html to element
-      $(newRow).html("<td>"+this.clock+"</td><td>"+text+"</td>");
+      $(newRow).html("<td class='removable'>"+this.clock+"</td><td class='removable'>"+text+"</td>");
       //prepend element
       $('#matchScreen table').delay(10000).prepend(newRow);
     }
@@ -46,9 +46,11 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
   }
   // kick off
   this.kickOff = function(){
+    if(this.played === false){
     this.possessionZone = 4;
     this.updateMatchScreen(this.control + " are kicking off")
     this.pass();
+    }
   };
 
   this.randomPlayer = function(array){
