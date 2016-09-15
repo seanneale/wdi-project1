@@ -23,6 +23,7 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
   this.homeTeamPens = 0;
   this.awayTeamPens = 0;
   this.viewed = false;
+  this.delayScreen = false;
 
   //function to add text to matchscreen
   this.updateMatchScreen = function(text){
@@ -45,7 +46,8 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
     }
   }
   // kick off
-  this.kickOff = function(){
+  this.kickOff = function(delay){
+    this.delayScreen = delay;
     if(this.played === false){
     this.possessionZone = 4;
     this.updateMatchScreen(this.control + " are kicking off")
@@ -206,62 +208,74 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
     }
   }
 
-  // pass function - calculate odds and carry out 'pass'
-  this.pass = function(){
-    this.time();
-    console.log("The time is " + this.clock);
-    console.log("The Possession Zone is " + this.possessionZone)
-    if(this.clock === 45){
+  var pass = function (self) {
+    self.time();
+    // console.log("The time is " + self.clock);
+    // console.log("The Possession Zone is " + self.possessionZone)
+    if(self.clock === 45){
       //stop the game
       //give a score update
-      this.updateMatchScreen("Half Time!");
-      this.score();
+      self.updateMatchScreen("Half Time!");
+      self.score();
       //change control to away team
-      this.control = this.awayTeam;
+      self.control = self.awayTeam;
       //kick off
-      this.kickOff();
-    } else if(this.clock===90){
+      self.kickOff();
+    } else if(self.clock===90){
       //stop the game
       //give a score update
-      this.updateMatchScreen("Full Time!");
-      this.score();
-      this.played = true;
-      this.endStatus();
-      if(this.homeTeamEndStatus === "draw" && this.stage === "knockout"){
-        this.penalty();
+      self.updateMatchScreen("Full Time!");
+      self.score();
+      self.played = true;
+      self.endStatus();
+      if(self.homeTeamEndStatus === "draw" && self.stage === "knockout"){
+        self.penalty();
       }
     } else {
       //calculate odds
-      var midPoint = this.midpointCalc();
+      var midPoint = self.midpointCalc();
       //determine random number
       var pass = Math.random();
       //reacting to random number
       if(pass <= midPoint){
-        this.updateMatchScreen(this.control + " Pass Successful!");
+        self.updateMatchScreen(self.control + " Pass Successful!");
         // change possesion zone and check if we can shoot
-        if(this.control === this.homeTeam){
+        if(self.control === self.homeTeam){
           //create a function which stops the possession zone going greater than 7 and less than 1
-          if(this.possessionZone===7){
-            this.shoot();
+          if(self.possessionZone===7){
+            self.shoot();
           } else {
-            this.possessionZone++;
-            this.pass();
+            self.possessionZone++;
+            self.pass();
           }
         } else {
-          if(this.possessionZone===1){
-            this.shoot();
+          if(self.possessionZone===1){
+            self.shoot();
           } else {
-            this.possessionZone--;
-            this.pass();
+            self.possessionZone--;
+            self.pass();
           }
         }
 
       } else {
         //Intercepting the pass and changing control
-        this.updateMatchScreen(this.control + " Pass Intercepted!");
-        this.swapControl();
-        this.pass();
+        self.updateMatchScreen(self.control + " Pass Intercepted!");
+        self.swapControl();
+        self.pass();
       }
+    }
+  }
+
+  // pass function - calculate odds and carry out 'pass'
+  this.pass = function(){
+    var self = this;
+
+    if (this.delayScreen) {
+      setTimeout(function(){
+        pass(self);
+      }, 1000);
+    } else {
+      pass(self);
     }
   };
 

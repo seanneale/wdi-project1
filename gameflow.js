@@ -91,8 +91,18 @@ function fixturePageBuildGroup(game,counter) {
   }
 }
 
-function fixturePageBuildKnockout(){
-
+function fixturePageBuildKnockout(game,counter){
+  var edits = $('#fixtureKnockoutStage').find('p');
+  console.log(game.quarterFinalMatches);
+  for(var i = 0; i < game.quarterFinalMatches.length; i++){
+    console.log(edits[i]);
+    console.log(game.quarterFinalMatches[i]);
+    if(game.quarterFinalMatches[i].played === true){
+      $(edits[i]).text(game.quarterFinalMatches[i].homeTeam+" "+game.quarterFinalMatches[i].homeTeamScore+":"+game.quarterFinalMatches[i].awayTeamScore+" "+game.quarterFinalMatches[i].awayTeam);
+    } else if (game.quarterFinalMatches[i].played === false){
+      $(edits[i]).text(game.quarterFinalMatches[i].homeTeam+" vs "+game.quarterFinalMatches[i].awayTeam);
+    }
+  }
 }
 
 function buildingMatchScreen(match){
@@ -127,7 +137,7 @@ function buildingMatchScreen(match){
     //adding a class to be listened for all the time
     //make sure once clicked the class is removed
     $('#matchScreenBtn').addClass('hide');
-    currentMatch.kickOff();
+    currentMatch.kickOff(true);
     $('#matchScreenContinue').removeClass('hide');
   })
 }
@@ -373,63 +383,25 @@ $(document).ready(
       $('#communicationPage').removeClass('hide');
     });
 
-
-// game.groupAMatches[2].kickOff();
-// game.tableUpdate(game.groupAMatches[2],game.groupA,game.groupATableUnsorted);
-// game.groupAMatches[3].kickOff();
-// game.tableUpdate(game.groupAMatches[3],game.groupA,game.groupATableUnsorted);
-// game.groupAMatches[4].kickOff();
-// game.tableUpdate(game.groupAMatches[4],game.groupA,game.groupATableUnsorted);
-// game.groupAMatches[5].kickOff();
-// game.tableUpdate(game.groupAMatches[5],game.groupA,game.groupATableUnsorted);
-
-// game.tableSort(game.groupATable,game.groupATableUnsorted,game.groupAMatches);
-
-
-// game.groupBMatches[2].kickOff();
-// game.tableUpdate(game.groupBMatches[2],game.groupB,game.groupBTableUnsorted);
-// game.groupBMatches[3].kickOff();
-// game.tableUpdate(game.groupBMatches[3],game.groupB,game.groupBTableUnsorted);
-// game.groupBMatches[4].kickOff();
-// game.tableUpdate(game.groupBMatches[4],game.groupB,game.groupBTableUnsorted);
-// game.groupBMatches[5].kickOff();
-// game.tableUpdate(game.groupBMatches[5],game.groupB,game.groupBTableUnsorted);
-
-// game.tableSort(game.groupBTable,game.groupBTableUnsorted,game.groupBMatches);
-
-
-// game.groupCMatches[2].kickOff();
-// game.tableUpdate(game.groupCMatches[2],game.groupC,game.groupCTableUnsorted);
-// game.groupCMatches[3].kickOff();
-// game.tableUpdate(game.groupCMatches[3],game.groupC,game.groupCTableUnsorted);
-// game.groupCMatches[4].kickOff();
-// game.tableUpdate(game.groupCMatches[4],game.groupC,game.groupCTableUnsorted);
-// game.groupCMatches[5].kickOff();
-// game.tableUpdate(game.groupCMatches[5],game.groupC,game.groupCTableUnsorted);
-
-// game.tableSort(game.groupCTable,game.groupCTableUnsorted,game.groupCMatches);
-
-
-// game.groupDMatches[2].kickOff();
-// game.tableUpdate(game.groupDMatches[2],game.groupD,game.groupDTableUnsorted);
-// game.groupDMatches[3].kickOff();
-// game.tableUpdate(game.groupDMatches[3],game.groupD,game.groupDTableUnsorted);
-// game.groupDMatches[4].kickOff();
-// game.tableUpdate(game.groupDMatches[4],game.groupD,game.groupDTableUnsorted);
-// game.groupDMatches[5].kickOff();
-// game.tableUpdate(game.groupDMatches[5],game.groupD,game.groupDTableUnsorted);
-
-// game.tableSort(game.groupDTable,game.groupDTableUnsorted,game.groupDMatches);
-
     //showing group draw and fixtures
     $('#commContinue').click(function(e){
       e.preventDefault();
       //hide communication page
-      $('#fixtureGroupStage').removeClass('hide');
-      //unhide fixtures
-      $('#communicationPage').addClass('hide');
-      //use a function here to build the fixture page
-      fixturePageBuildGroup(game,counter);
+      if(counter === 3) {
+        $('#fixtureKnockoutStage').removeClass('hide');
+        $('#communicationPage').addClass('hide');
+        fixturePageBuildKnockout(game,counter);
+      } else if (counter === 0){
+        $('#fixtureGroupStage').removeClass('hide');
+        //unhide fixtures
+        $('#communicationPage').addClass('hide');
+        //use a function here to build the fixture page
+        fixturePageBuildGroup(game,counter);
+      } else {
+        $('#fixtureGroupStage').removeClass('hide');
+        $('#communicationPage').addClass('hide');
+      }
+
     })
 
     var playedMatch ="";
@@ -440,48 +412,49 @@ $(document).ready(
       e.preventDefault();
       //building the team pick page
       //find the team in the array of teams
-      var locA = -1;
-      var locB = -1;
-      for(var i = 0; i<game.groupArray.length; i++){
-        for(var j = 0; j<game.groupArray[i].length; j++){
-          if(game.groupArray[i][j].nation === nationChoice){
-            locA = i;
-            locB = j;
+      if(counter === 0){
+        var locA = -1;
+        var locB = -1;
+        for(var i = 0; i<game.groupArray.length; i++){
+          for(var j = 0; j<game.groupArray[i].length; j++){
+            if(game.groupArray[i][j].nation === nationChoice){
+              locA = i;
+              locB = j;
+            }
           }
         }
+        // changing the team name
+        $('#teamPick h1').text(nationChoice);
+        //defining arrays for each position
+        var goalkeepers = game.groupArray[locA][locB].goalkeepers;
+        var defendersArray = game.groupArray[locA][locB].pickedDefenders.concat(game.groupArray[locA][locB].defenders);
+        var midfieldersArray = game.groupArray[locA][locB].pickedMidfielders.concat(game.groupArray[locA][locB].midfielders);
+        var attackersArray = game.groupArray[locA][locB].pickedAttackers.concat(game.groupArray[locA][locB].attackers);
+        //replacing the goalkeeper list
+        for(var i = 0; i < goalkeepers.length; i++){
+          var newTableRow = document.createElement("tr");
+          $(newTableRow).html("<td><div class='checkbox'><label><input type='checkbox' name='selector[]' id='goalkeepersCheckbox' value="+goalkeepers[i].firstName+goalkeepers[i].lastName+">"+goalkeepers[i].firstName+' '+goalkeepers[i].lastName+"</label></div></td><td>"+goalkeepers[i].ability+"</td>");
+          $('#goalkeepers').append(newTableRow);
+        }
+        //updating the defender list
+        for(var i = 0; i < defendersArray.length; i++){
+          var newTableRow = document.createElement("tr");
+          $(newTableRow).html("<td><div class='checkbox'><label><input type='checkbox' name='selector[]' id='defendersCheckbox' value="+defendersArray[i].firstName+defendersArray[i].lastName+">"+defendersArray[i].firstName+' '+defendersArray[i].lastName+"</label></div></td><td>"+defendersArray[i].defendingAbility+"</td><td>"+defendersArray[i].attackingAbility+"</td>");
+          $('#defenders').append(newTableRow);
+        }
+        //updating the midfielder list
+        for(var i = 0; i < midfieldersArray.length; i++){
+          var newTableRow = document.createElement("tr");
+          $(newTableRow).html("<td><div class='checkbox'><label><input type='checkbox' name='selector[]' id='midfieldersCheckbox' value="+midfieldersArray[i].firstName+midfieldersArray[i].lastName+">"+midfieldersArray[i].firstName+' '+midfieldersArray[i].lastName+"</label></div></td><td>"+midfieldersArray[i].defendingAbility+"</td><td>"+midfieldersArray[i].attackingAbility+"</td>");
+          $('#midfielders').append(newTableRow);
+        }
+        //updating the defender list
+        for(var i = 0; i < attackersArray.length; i++){
+          var newTableRow = document.createElement("tr");
+          $(newTableRow).html("<td><div class='checkbox'><label><input type='checkbox' name='selector[]' id='attackersCheckbox' value="+attackersArray[i].firstName+attackersArray[i].lastName+">"+attackersArray[i].firstName+' '+attackersArray[i].lastName+"</label></div></td><td>"+attackersArray[i].defendingAbility+"</td><td>"+attackersArray[i].attackingAbility+"</td>");
+          $('#attackers').append(newTableRow);
+        }
       }
-      //defining arrays for each position
-      var goalkeepers = game.groupArray[locA][locB].goalkeepers;
-      var defendersArray = game.groupArray[locA][locB].pickedDefenders.concat(game.groupArray[locA][locB].defenders);
-      var midfieldersArray = game.groupArray[locA][locB].pickedMidfielders.concat(game.groupArray[locA][locB].midfielders);
-      var attackersArray = game.groupArray[locA][locB].pickedAttackers.concat(game.groupArray[locA][locB].attackers);
-      //replacing the goalkeeper list
-      for(var i = 0; i < goalkeepers.length; i++){
-        var newTableRow = document.createElement("tr");
-        $(newTableRow).html("<td><div class='checkbox'><label><input type='checkbox' name='selector[]' id='goalkeepersCheckbox' value="+goalkeepers[i].firstName+goalkeepers[i].lastName+">"+goalkeepers[i].firstName+' '+goalkeepers[i].lastName+"</label></div></td><td>"+goalkeepers[i].ability+"</td>");
-        $('#goalkeepers').append(newTableRow);
-      }
-      //updating the defender list
-      for(var i = 0; i < defendersArray.length; i++){
-        var newTableRow = document.createElement("tr");
-        $(newTableRow).html("<td><div class='checkbox'><label><input type='checkbox' name='selector[]' id='defendersCheckbox' value="+defendersArray[i].firstName+defendersArray[i].lastName+">"+defendersArray[i].firstName+' '+defendersArray[i].lastName+"</label></div></td><td>"+defendersArray[i].defendingAbility+"</td><td>"+defendersArray[i].attackingAbility+"</td>");
-        $('#defenders').append(newTableRow);
-      }
-      //updating the midfielder list
-      for(var i = 0; i < midfieldersArray.length; i++){
-        var newTableRow = document.createElement("tr");
-        $(newTableRow).html("<td><div class='checkbox'><label><input type='checkbox' name='selector[]' id='midfieldersCheckbox' value="+midfieldersArray[i].firstName+midfieldersArray[i].lastName+">"+midfieldersArray[i].firstName+' '+midfieldersArray[i].lastName+"</label></div></td><td>"+midfieldersArray[i].defendingAbility+"</td><td>"+midfieldersArray[i].attackingAbility+"</td>");
-        $('#midfielders').append(newTableRow);
-      }
-      //updating the defender list
-      for(var i = 0; i < attackersArray.length; i++){
-        var newTableRow = document.createElement("tr");
-        $(newTableRow).html("<td><div class='checkbox'><label><input type='checkbox' name='selector[]' id='attackersCheckbox' value="+attackersArray[i].firstName+attackersArray[i].lastName+">"+attackersArray[i].firstName+' '+attackersArray[i].lastName+"</label></div></td><td>"+attackersArray[i].defendingAbility+"</td><td>"+attackersArray[i].attackingAbility+"</td>");
-        $('#attackers').append(newTableRow);
-      }
-
-
-
       if(counter === 0){
         var i=1;
         while(i <= 4){
@@ -586,9 +559,10 @@ $(document).ready(
           }
           i++;
         }
-
       } else if (counter === 3){
+        var i = 0;
         while(i <= 4){
+          var focus = 0;
           if(i === 1){
             focus = game.groupATable;
           } else if(i === 2){
@@ -598,8 +572,40 @@ $(document).ready(
           } else if(i === 4){
             focus = game.groupDTable;
           }
+          for(var j = 0; j < focus.length; j++){
+            if(nationChoice === focus[j].nation && j < 2){
+              //go through
+              //do quarter final prep
+              game.quarterFinalGenerate();
+              //change communication screen
+              var header = $('#communicationPage').find('h1');
+              $(header).text("Congratulations you're through to the Quarter Finals, is this the start of something special?");
+              //hide fixture group
+              $('#fixtureGroupStage').addClass('hide');
+              //reveal communication screen
+              $('#communicationPage').removeClass('hide');
+            } else if((nationChoice === focus[j].nation && j >= 2)){
+              //go home
+              //update communication screen
+              var header = $('#communicationPage').find('h1');
+              $(header).text("Out in the first round?  What a bunch of overpaid softys, my nan could play better than them");
+              //create an element
+              var newElement = document.createElement('h3');
+              //give it some text
+              $(newElement).html('Please refresh to continue');
+              //append it to the div
+              var temp = $('#communicationPage .row')[0];
+              $(temp).append(newElement);
+              $('#commContinue').addClass('hide');
+              //hide fixture group
+              $('#fixtureGroupStage').addClass('hide');
+              //reveal communication screen
+              $('#communicationPage').removeClass('hide');
+            }
+          }
+          i++;
         }
-        console.log(focus);
+
 
 
 
@@ -643,6 +649,7 @@ $(document).ready(
       $('#matchScreenBtn').removeClass('hide');
       $('#matchScreenContinue').addClass('hide');
       counter++;
+      console.log(counter);
       //recalculate tables
       game.tableUpdate(playedMatch,playedGroup,playedUnsrtTable);
       game.tableSort(game.groupATable,game.groupATableUnsorted,game.groupAMatches);
