@@ -38,18 +38,7 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
   this.goalkeeperAssignAbility = function(){
     for(var i = 0; i < this.goalkeepersGen.length; i++){
       // Calculating Ability using random number
-      var random = Math.random();
-      if(random < 0.35){
-        var ability = 6;
-      } else if (random < 0.70) {
-        var ability = 7;
-      } else if ( random < 0.88) {
-        var ability = 8;
-      } else if (random < 0.98) {
-        var ability = 9;
-      } else {
-        var ability = 10;
-      }
+      var ability = parseInt(5 * Math.pow(Math.random(),2) + 6);
       // creating the player object
       var player = new goalkeeper(this.goalkeepersGen[i][0],this.goalkeepersGen[i][1],this.nationality,ability);
       // adding object to relevant array
@@ -61,27 +50,9 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
   this.defenderAssignAbility = function(){
     for(var i = 0; i < this.defendersGen.length; i++){
       // Calculating defending Ability using random number
-      var random = Math.random();
-      if(random < 0.35){
-        var defAbility = 6;
-      } else if (random < 0.70) {
-        var defAbility = 7;
-      } else if ( random < 0.88) {
-        var defAbility = 8;
-      } else if (random < 0.98) {
-        var defAbility = 9;
-      } else {
-        var defAbility = 10;
-      }
+      var defAbility = parseInt(5 * Math.pow(Math.random(),2) + 6);
       // Calculating the attacking ability using random number
-      var random = Math.random();
-      if(random < 1/3){
-        var attAbility = defAbility - 5;
-      } else if(random < 2/3) {
-        var attAbility = defAbility - 4;
-      } else {
-        var attAbility = defAbility - 3;
-      }
+      var attAbility = defAbility - 3 * Math.random() -1;
       // creating the player object
       var player = new outfieldPlayer(this.defendersGen[i][0],this.defendersGen[i][1],this.nationality,"Defender",defAbility,attAbility);
       // adding object to relevant array
@@ -93,31 +64,9 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
   this.midfielderAssignAbility = function(){
     for(var i = 0; i < this.midfieldersGen.length; i++){
       // Calculating defending Ability using random number
-      var random = Math.random();
-      if(random < 0.35){
-        var defAbility = 4;
-      } else if (random < 0.70) {
-        var defAbility = 5;
-      } else if ( random < 0.88) {
-        var defAbility = 6;
-      } else if (random < 0.98) {
-        var defAbility = 7;
-      } else {
-        var defAbility = 8;
-      }
+      var defAbility = parseInt(5 * Math.pow(Math.random(),2) + 4);
       // Calculating the attacking ability using random number
-      var random = Math.random();
-      if(random < 0.35){
-        var attAbility = 4;
-      } else if (random < 0.70) {
-        var attAbility = 5;
-      } else if ( random < 0.88) {
-        var attAbility = 6;
-      } else if (random < 0.98) {
-        var attAbility = 7;
-      } else {
-        var attAbility = 8;
-      }
+      var attAbility = parseInt(5 * Math.pow(Math.random(),2) + 4);
       // creating the player object
       var player = new outfieldPlayer(this.midfieldersGen[i][0],this.midfieldersGen[i][1],this.nationality,"Midfielder",defAbility,attAbility);
       // adding object to relevant array
@@ -129,27 +78,9 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
   this.attackerAssignAbility = function(){
     for(var i = 0; i < this.attackersGen.length; i++){
       // Calculating the attacking ability using random number
-      var random = Math.random();
-      if(random < 0.35){
-        var attAbility = 6;
-      } else if (random < 0.70) {
-        var attAbility = 7;
-      } else if ( random < 0.88) {
-        var attAbility = 8;
-      } else if (random < 0.98) {
-        var attAbility = 9;
-      } else {
-        var attAbility = 10;
-      }
+      var attAbility = parseInt(5 * Math.pow(Math.random(),2) + 6);
       // Calculating defending Ability using random number and attacking ability
-      var random = Math.random();
-      if(random < 1/3){
-        var defAbility = attAbility - 5;
-      } else if(random < 2/3) {
-        var defAbility = attAbility - 4;
-      } else {
-        var defAbility = attAbility - 3;
-      }
+      var defAbility = attAbility - 3 * Math.random() -1;
       // creating the player object
       var player = new outfieldPlayer(this.attackersGen[i][0],this.attackersGen[i][1],this.nationality,"Attacker",defAbility,attAbility);
       // adding object to relevant array
