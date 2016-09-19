@@ -188,211 +188,211 @@ var squad = function(nation,nationality,goalkeepers,defenders,midfielders,attack
 }
 
 
-// var japan = new squad('Japan','Japanese',[
-//     ['Eiji','Kawashima'] , ['Shusaku','Nishikawa'] , ['Masaaki' , 'Higashiguchi']
-//   ],[
-//     ['Naomichi','Ueda'] , ['Kosuke','Ota'] , ['Yuto' , 'Nagatomo'] , ['Tsukasa' , 'Shiotani'] , ['Takashi' , 'Inui'] , ['Gen' , 'Shoji'] , ['Gōtoku' , 'Sakai'] , ['Maya' , 'Yoshida']
-//   ],[
-//     ['Masato' , 'Morishige'] , ['Yasuhito' , 'Endo'] , ['Shinji' , 'Kagawa'] , ['Yu' , 'Kobayashi'] , ['Yasuyuki' , 'Konno'] , ['Makoto' , 'Hasebe'] , ['Gaku' , 'Shibasaki']
-//   ],[
-//     ['Keisuke' , 'Honda'] , ['Hiroshi' , 'Kiyotake'] , ['Shinji' , 'Okazaki'] , ['Yohei' , 'Toyoda'] , ['Yoshinori' , 'Muto']
-//   ]);
+var japan = new squad('Japan','Japanese',[
+    ['Eiji','Kawashima'] , ['Shusaku','Nishikawa'] , ['Masaaki' , 'Higashiguchi']
+  ],[
+    ['Naomichi','Ueda'] , ['Kosuke','Ota'] , ['Yuto' , 'Nagatomo'] , ['Tsukasa' , 'Shiotani'] , ['Takashi' , 'Inui'] , ['Gen' , 'Shoji'] , ['Gōtoku' , 'Sakai'] , ['Maya' , 'Yoshida']
+  ],[
+    ['Masato' , 'Morishige'] , ['Yasuhito' , 'Endo'] , ['Shinji' , 'Kagawa'] , ['Yu' , 'Kobayashi'] , ['Yasuyuki' , 'Konno'] , ['Makoto' , 'Hasebe'] , ['Gaku' , 'Shibasaki']
+  ],[
+    ['Keisuke' , 'Honda'] , ['Hiroshi' , 'Kiyotake'] , ['Shinji' , 'Okazaki'] , ['Yohei' , 'Toyoda'] , ['Yoshinori' , 'Muto']
+  ]);
 
-// japan.generatePlayers();
-// japan.autopick();
+japan.generatePlayers();
+japan.autopick();
 
 
-// var ireland = new squad ('Republic of Ireland', 'Irish', [
-//     ['Keiren' , 'Westwood'] , ['Shay' , 'Given'] , ['Darren' , 'Randolph']
-//   ] , [
-//     ['Seamus' , 'Coleman'] , ['Ciaran' , 'Clark'] , ["John" , "O'Shea"] , ['Richard' , 'Keogh'] , ['Shane' , 'Duffy'] , ['Cyrus' , 'Christie'] , ['Stephen' , 'Ward']
-//   ] , [
-//     ['Glenn' , 'Whelan'] , ['Aiden' , 'McGeady'] , ['James' , 'McCarthy'] , ['James' , 'McClean'] , ['Jeff' , 'Hendrick'] , ['David' , 'Meyler'] , ['Robbie' , 'Brady'] , ['Wes' , 'Hoolahan'] , ['Stephen' , 'Quinn']
-//   ] , [
-//     ['Shane' , 'Long'] , ['Robbie' , 'Keane'] , ['Jonathan' , 'Walters'] , ['Daryl' , 'Murphy']
-//   ] );
+var ireland = new squad ('Republic of Ireland', 'Irish', [
+    ['Keiren' , 'Westwood'] , ['Shay' , 'Given'] , ['Darren' , 'Randolph']
+  ] , [
+    ['Seamus' , 'Coleman'] , ['Ciaran' , 'Clark'] , ["John" , "O'Shea"] , ['Richard' , 'Keogh'] , ['Shane' , 'Duffy'] , ['Cyrus' , 'Christie'] , ['Stephen' , 'Ward']
+  ] , [
+    ['Glenn' , 'Whelan'] , ['Aiden' , 'McGeady'] , ['James' , 'McCarthy'] , ['James' , 'McClean'] , ['Jeff' , 'Hendrick'] , ['David' , 'Meyler'] , ['Robbie' , 'Brady'] , ['Wes' , 'Hoolahan'] , ['Stephen' , 'Quinn']
+  ] , [
+    ['Shane' , 'Long'] , ['Robbie' , 'Keane'] , ['Jonathan' , 'Walters'] , ['Daryl' , 'Murphy']
+  ] );
 
-// ireland.generatePlayers();
-// ireland.autopick();
+ireland.generatePlayers();
+ireland.autopick();
 
-// var spain = new squad ('Spain', 'spanish', [
-//     ['Iker' , 'Casillas'] , ['David' , 'de Gea'] , ['Sergio' , 'Rico']
-//   ] , [
-//     ['Cesar' , 'Azpilicueta'] , ['Gerard' , 'Pique'] , ['Marc' , 'Bartra'] , ['Hector' , 'Bellerin'] , ['Sergio' , 'Ramos'] , ['' , 'Juanfran'] , ['Mikel' , 'San Jose'] , ['Jordi' , 'Alba']
-//   ] , [
-//     ['Sergio' , 'Busquets'] , ['Andres' , 'Iniesta'] , ['' , 'Koke'] , ['Cesc' , 'Fabregas'] , ['' , 'Thiago'] , ['Bruno' , 'Soriano'] , ['David' , 'Silva']
-//   ] , [
-//     ['Alvaro' , 'Morata'] , ['Lucas' , 'Vazquez'] , ['' , 'Pedro'] , ['Aritz' , 'Aduriz'] , ['' , 'Nolito']
-//   ] );
+var spain = new squad ('Spain', 'spanish', [
+    ['Iker' , 'Casillas'] , ['David' , 'de Gea'] , ['Sergio' , 'Rico']
+  ] , [
+    ['Cesar' , 'Azpilicueta'] , ['Gerard' , 'Pique'] , ['Marc' , 'Bartra'] , ['Hector' , 'Bellerin'] , ['Sergio' , 'Ramos'] , ['' , 'Juanfran'] , ['Mikel' , 'San Jose'] , ['Jordi' , 'Alba']
+  ] , [
+    ['Sergio' , 'Busquets'] , ['Andres' , 'Iniesta'] , ['' , 'Koke'] , ['Cesc' , 'Fabregas'] , ['' , 'Thiago'] , ['Bruno' , 'Soriano'] , ['David' , 'Silva']
+  ] , [
+    ['Alvaro' , 'Morata'] , ['Lucas' , 'Vazquez'] , ['' , 'Pedro'] , ['Aritz' , 'Aduriz'] , ['' , 'Nolito']
+  ] );
 
-// spain.generatePlayers();
-// spain.autopick();
+spain.generatePlayers();
+spain.autopick();
 
-// var germany = new squad ('Germany', 'german', [
-//     ['Manuel' , 'Neuer'] , ['Bernd' , 'Leno'] , ['Marc-Andre' , 'ter Stegen']
-//   ] , [
-//     ['Shkodran' , 'Mustafi'] , ['Jonas' , 'Hector'] , ['Benedikt' , 'Howedes'] , ['Mats' , 'Hummels'] , ['Jonathan' , 'Tah'] , ['Jerome' , 'Boateng'] , ['Joshua' , 'Kimmich']
-//   ] , [
-//     ['Sami' , 'Khedira']  , ['Bastian' , 'Schweinsteiger'] , ['Mesut' , 'Ozil'] , ['Andre' , 'Schurrle'] , ['Julian' , 'Draxler'] , ['Emre' , 'Can'] , ['Julian' , 'Weigl'] , ['Toni' , 'Kroos'] , ['Mario' , 'Gotze'] , ['Leroy' , 'Sane']
-//   ] , [
-//     ['Lukas' , 'Podolski'] , ['Thomas' , 'Muller'] , ['Mario' , 'Gomez']
-//   ] );
+var germany = new squad ('Germany', 'german', [
+    ['Manuel' , 'Neuer'] , ['Bernd' , 'Leno'] , ['Marc-Andre' , 'ter Stegen']
+  ] , [
+    ['Shkodran' , 'Mustafi'] , ['Jonas' , 'Hector'] , ['Benedikt' , 'Howedes'] , ['Mats' , 'Hummels'] , ['Jonathan' , 'Tah'] , ['Jerome' , 'Boateng'] , ['Joshua' , 'Kimmich']
+  ] , [
+    ['Sami' , 'Khedira']  , ['Bastian' , 'Schweinsteiger'] , ['Mesut' , 'Ozil'] , ['Andre' , 'Schurrle'] , ['Julian' , 'Draxler'] , ['Emre' , 'Can'] , ['Julian' , 'Weigl'] , ['Toni' , 'Kroos'] , ['Mario' , 'Gotze'] , ['Leroy' , 'Sane']
+  ] , [
+    ['Lukas' , 'Podolski'] , ['Thomas' , 'Muller'] , ['Mario' , 'Gomez']
+  ] );
 
-// germany.generatePlayers();
-// germany.autopick();
+germany.generatePlayers();
+germany.autopick();
 
-// var france = new squad ('France', 'french', [
-//     ['Hugo' , 'Lloris'] , ['Steve' , 'Mandanda'] , ['Benoît' , 'Costil']
-//   ] , [
-//     ['Christophe' , 'Jallet'] , ['Patrice' , 'Evra'] , ['Adil' , 'Rami'] , ['Eliaquim' , 'Mangala'] , ['Lucas' , 'Digne'] , ['Bacary' , 'Sagna'] , ['Laurent' , 'Koscielny'] , ['Samuel' , 'Umtiti']
-//   ] , [
-//     ["N'Golo" , 'Kante']  , ['Yohan' , 'Cabaye'] , ['Dimitri' , 'Payet'] , ['Morgan' , 'Schneiderlin'] , ['Blaise' , 'Matuidi'] , ['Paul' , 'Pogba'] , ['Moussa' , 'Sissoko']
-//   ] , [
-//     ['Antoine' , 'Griezmann'] , ['Olivier' , 'Giroud'] , ['André-Pierre' , 'Gignac'] , ['Anthony' , 'Martial'] , ['Kingsley' , 'Coman']
-//   ] );
+var france = new squad ('France', 'french', [
+    ['Hugo' , 'Lloris'] , ['Steve' , 'Mandanda'] , ['Benoît' , 'Costil']
+  ] , [
+    ['Christophe' , 'Jallet'] , ['Patrice' , 'Evra'] , ['Adil' , 'Rami'] , ['Eliaquim' , 'Mangala'] , ['Lucas' , 'Digne'] , ['Bacary' , 'Sagna'] , ['Laurent' , 'Koscielny'] , ['Samuel' , 'Umtiti']
+  ] , [
+    ["N'Golo" , 'Kante']  , ['Yohan' , 'Cabaye'] , ['Dimitri' , 'Payet'] , ['Morgan' , 'Schneiderlin'] , ['Blaise' , 'Matuidi'] , ['Paul' , 'Pogba'] , ['Moussa' , 'Sissoko']
+  ] , [
+    ['Antoine' , 'Griezmann'] , ['Olivier' , 'Giroud'] , ['André-Pierre' , 'Gignac'] , ['Anthony' , 'Martial'] , ['Kingsley' , 'Coman']
+  ] );
 
-// france.generatePlayers();
-// france.autopick();
+france.generatePlayers();
+france.autopick();
 
-// var england = new squad ('England', 'engish', [
-//     ['Joe' , 'Hart'] , ['Fraser' , 'Forster'] , ['Tom' , 'Heaton']
-//   ] , [
-//     ['Kyle' , 'Walker'] , ['Danny' , 'Rose'] , ['Gary' , 'Cahill'] , ['Chris' , 'Smalling'] , ['Nathaniel' , 'Clyne'] , ['John' , 'Stones'] , ['Ryan' , 'Bertrand']
-//   ] , [
-//     ['James' , 'Milner']  , ['Raheem' , 'Sterling'] , ['Adam' , 'Lallana'] , ['Jordan' , 'Henderson'] , ['Eric' , 'Dier'] , ['Jack' , 'Wilshere'] , ['Dele' , 'Alli']
-//   ] , [
-//     ['Harry' , 'Kane'] , ['Wayne' , 'Rooney'] , ['Jamie' , 'Vardy'] , ['Daniel' , 'Sturridge'] , ['Marcus' , 'Rashford']
-//   ] );
+var england = new squad ('England', 'engish', [
+    ['Joe' , 'Hart'] , ['Fraser' , 'Forster'] , ['Tom' , 'Heaton']
+  ] , [
+    ['Kyle' , 'Walker'] , ['Danny' , 'Rose'] , ['Gary' , 'Cahill'] , ['Chris' , 'Smalling'] , ['Nathaniel' , 'Clyne'] , ['John' , 'Stones'] , ['Ryan' , 'Bertrand']
+  ] , [
+    ['James' , 'Milner']  , ['Raheem' , 'Sterling'] , ['Adam' , 'Lallana'] , ['Jordan' , 'Henderson'] , ['Eric' , 'Dier'] , ['Jack' , 'Wilshere'] , ['Dele' , 'Alli']
+  ] , [
+    ['Harry' , 'Kane'] , ['Wayne' , 'Rooney'] , ['Jamie' , 'Vardy'] , ['Daniel' , 'Sturridge'] , ['Marcus' , 'Rashford']
+  ] );
 
-// england.generatePlayers();
-// england.autopick();
+england.generatePlayers();
+england.autopick();
 
-// var australia = new squad ('Australia', 'australian', [
-//     ['Mathew' , 'Ryan'] , ['Mitchell' , 'Langerak'] , ['Eugene' , 'Galekovic']
-//   ] , [
-//     ['Ivan' , 'Franjic'] , ['Jason' , 'Davidson'] , ['Matthew' , 'Spiranovic'] , ['Chris' , 'Herd'] , ['Aziz' , 'Behich'] , ['Trent' , 'Sainsbury'] , ['Alex' , 'Wilkinson']
-//   ] , [
-//     ['Mark' , 'Milligan']  , ['Mathew' , 'Leckie'] , ['Tommy' , 'Oar'] , ['James' , 'Troisi'] , ['Mile' , 'Jedinak'] , ['Matt' , 'McKay'] , ['Terry' , 'Antonis'] , ['Massimo' , 'Luongo'] , ['Mark' , 'Bresciano']
-//   ] , [
-//     ['Tim' , 'Cahill'] , ['Tomi' , 'Juric'] , ['Robbie' , 'Kruse'] , ['Nathan' , 'Burns']
-//   ] );
+var australia = new squad ('Australia', 'australian', [
+    ['Mathew' , 'Ryan'] , ['Mitchell' , 'Langerak'] , ['Eugene' , 'Galekovic']
+  ] , [
+    ['Ivan' , 'Franjic'] , ['Jason' , 'Davidson'] , ['Matthew' , 'Spiranovic'] , ['Chris' , 'Herd'] , ['Aziz' , 'Behich'] , ['Trent' , 'Sainsbury'] , ['Alex' , 'Wilkinson']
+  ] , [
+    ['Mark' , 'Milligan']  , ['Mathew' , 'Leckie'] , ['Tommy' , 'Oar'] , ['James' , 'Troisi'] , ['Mile' , 'Jedinak'] , ['Matt' , 'McKay'] , ['Terry' , 'Antonis'] , ['Massimo' , 'Luongo'] , ['Mark' , 'Bresciano']
+  ] , [
+    ['Tim' , 'Cahill'] , ['Tomi' , 'Juric'] , ['Robbie' , 'Kruse'] , ['Nathan' , 'Burns']
+  ] );
 
-// australia.generatePlayers();
-// australia.autopick();
+australia.generatePlayers();
+australia.autopick();
 
-// var southKorea = new squad ('South Korea', 'south korean', [
-//     ['Jung' , 'Sung-ryong'] , ['Kim' , 'Seung-gyu'] , ['Kim' , 'Jin-hyeon']
-//   ] , [
-//     ['Kim' , 'Chang-soo'] , ['Kim' , 'Jin-su'] , ['Kim' , 'Ju-young'] , ['Kwak' , 'Tae-hwi'] , ['Kim' , 'Young-gwon'] , ['Jang' , 'Hyun-soo'] , ['Cha' , 'Du-ri']
-//   ] , [
-//     ['Park' , 'Joo-ho']  , ['Son' , 'Heung-min'] , ['Kim' , 'Min-woo'] , ['Nam' , 'Tae-hee'] , ['Han' , 'Kyo-won'] , ['Koo' , 'Ja-cheol'] , ['Han' , 'Kook-young'] , ['Lee' , 'Myung-joo'] , ['Ki' , 'Sung-yueng'] , ['Lee' , 'Chung-yong']
-//   ] , [
-//     ['Cho' , 'Young-cheol'] , ['Lee' , 'Keun-ho'] , ['Lee' , 'Jung-hyup']
-//   ] );
+var southKorea = new squad ('South Korea', 'south korean', [
+    ['Jung' , 'Sung-ryong'] , ['Kim' , 'Seung-gyu'] , ['Kim' , 'Jin-hyeon']
+  ] , [
+    ['Kim' , 'Chang-soo'] , ['Kim' , 'Jin-su'] , ['Kim' , 'Ju-young'] , ['Kwak' , 'Tae-hwi'] , ['Kim' , 'Young-gwon'] , ['Jang' , 'Hyun-soo'] , ['Cha' , 'Du-ri']
+  ] , [
+    ['Park' , 'Joo-ho']  , ['Son' , 'Heung-min'] , ['Kim' , 'Min-woo'] , ['Nam' , 'Tae-hee'] , ['Han' , 'Kyo-won'] , ['Koo' , 'Ja-cheol'] , ['Han' , 'Kook-young'] , ['Lee' , 'Myung-joo'] , ['Ki' , 'Sung-yueng'] , ['Lee' , 'Chung-yong']
+  ] , [
+    ['Cho' , 'Young-cheol'] , ['Lee' , 'Keun-ho'] , ['Lee' , 'Jung-hyup']
+  ] );
 
-// southKorea.generatePlayers();
-// southKorea.autopick();
+southKorea.generatePlayers();
+southKorea.autopick();
 
-// var algeria = new squad ('Algeria', 'algeria', [
-//     ['Azzedine' , 'Doukha'] , ['Cédric' , 'Si Mohamed'] , ['Raïs' , "M'Bolhi"]
-//   ] , [
-//     ['Madjid' , 'Bougherra'] , ['Faouzi' , 'Ghoulam'] , ['Liassine' , 'Cadamuro-Bentaïba'] , ['Rafik' , 'Halliche'] , ['Djamel' , 'Mesbah'] , ['Carl' , 'Medjani'] , ['Aissa' , 'Mandi'] , ['Mehdi' , 'Zeffane']
-//   ] , [
-//     ['Riyad' , 'Mahrez']  , ['Medhi' , 'Lacen'] , ['Sofiane' , 'Feghouli'] , ['Yacine' , 'Brahimi'] , ['Nabil' , 'Bentaleb'] , ['Foued' , 'Kadir'] , ['Abdelmoumene' , 'Djabou'] , ['Saphir' , 'Taider'] , ['Ahmed' , 'Kashi']
-//   ] , [
-//     ['Ishak' , 'Belfodil'] , ['Islam' , 'Slimani'] , ['El Arbi' , 'Soudani']
-//   ] );
+var algeria = new squad ('Algeria', 'algeria', [
+    ['Azzedine' , 'Doukha'] , ['Cédric' , 'Si Mohamed'] , ['Raïs' , "M'Bolhi"]
+  ] , [
+    ['Madjid' , 'Bougherra'] , ['Faouzi' , 'Ghoulam'] , ['Liassine' , 'Cadamuro-Bentaïba'] , ['Rafik' , 'Halliche'] , ['Djamel' , 'Mesbah'] , ['Carl' , 'Medjani'] , ['Aissa' , 'Mandi'] , ['Mehdi' , 'Zeffane']
+  ] , [
+    ['Riyad' , 'Mahrez']  , ['Medhi' , 'Lacen'] , ['Sofiane' , 'Feghouli'] , ['Yacine' , 'Brahimi'] , ['Nabil' , 'Bentaleb'] , ['Foued' , 'Kadir'] , ['Abdelmoumene' , 'Djabou'] , ['Saphir' , 'Taider'] , ['Ahmed' , 'Kashi']
+  ] , [
+    ['Ishak' , 'Belfodil'] , ['Islam' , 'Slimani'] , ['El Arbi' , 'Soudani']
+  ] );
 
-// algeria.generatePlayers();
-// algeria.autopick();
+algeria.generatePlayers();
+algeria.autopick();
 
-// var ghana = new squad ('Ghana', 'Ghanaian', [
-//     ['Brimah' , 'Razak'] , ['Ernest' , 'Sowah'] , ['Fatau' , 'Dauda']
-//   ] , [
-//     ['Edwin' , 'Gyimah'] , ['Mohamed' , 'Awal'] , ['Baba' , 'Rahman'] , ['Daniel' , 'Amartey'] , ['Jonathan' , 'Mensah'] , ['John' , 'Boye'] , ['Harrison' , 'Afful']
-//   ] , [
-//     ['Afriyie' , 'Acquah']  , ['Christian' , 'Atsu'] , ['Emmanuel' , 'Agyemang-Badu'] , ['Andre' , 'Ayew'] , ['Mubarak' , 'Wakaso'] , ['Mohammed' , 'Rabiu'] , ['Solomon' , 'Asante'] , ['Frank' , 'Acheampong']
-//   ] , [
-//     ['Kwesi' , 'Appiah'] , ['Asamoah' , 'Gyan'] , ['Jordan' , 'Ayew'] , ['Mahatma' , 'Otoo'] , ['David' , 'Accam']
-//   ] );
+var ghana = new squad ('Ghana', 'Ghanaian', [
+    ['Brimah' , 'Razak'] , ['Ernest' , 'Sowah'] , ['Fatau' , 'Dauda']
+  ] , [
+    ['Edwin' , 'Gyimah'] , ['Mohamed' , 'Awal'] , ['Baba' , 'Rahman'] , ['Daniel' , 'Amartey'] , ['Jonathan' , 'Mensah'] , ['John' , 'Boye'] , ['Harrison' , 'Afful']
+  ] , [
+    ['Afriyie' , 'Acquah']  , ['Christian' , 'Atsu'] , ['Emmanuel' , 'Agyemang-Badu'] , ['Andre' , 'Ayew'] , ['Mubarak' , 'Wakaso'] , ['Mohammed' , 'Rabiu'] , ['Solomon' , 'Asante'] , ['Frank' , 'Acheampong']
+  ] , [
+    ['Kwesi' , 'Appiah'] , ['Asamoah' , 'Gyan'] , ['Jordan' , 'Ayew'] , ['Mahatma' , 'Otoo'] , ['David' , 'Accam']
+  ] );
 
-// ghana.generatePlayers();
-// ghana.autopick();
+ghana.generatePlayers();
+ghana.autopick();
 
-// var ivoryCoast = new squad ('Ivory Coast', 'ivorian', [
-//     ['Boubacar' , 'Barry'] , ['Sylvain' , 'Gbohouo'] , ['Sayouba' , 'Mande']
-//   ] , [
-//     ['Ousmane' , 'Viera'] , ['Kolo' , 'Toure'] , ['Siaka' , 'Tiene'] , ['Jean-Daniel' , 'Akpa-Akpro'] , ['Serge' , 'Aurier'] , ['Eric' , 'Bailly'] , ['Wilfried' , 'Kanon']
-//   ] , [
-//     ['Roger' , 'Assale']  , ['Cheick' , 'Doukoure'] , ['Cheick' , 'Tiote'] , ['Ismael' , 'Diomande'] , ['Max' , 'Gradel'] , ['Yaya' , 'Toure'] , ['Serey' , 'Die']
-//   ] , [
-//     ['Seydou' , 'Doumbia'] , ['Salomon' , 'Kalou'] , ['' , 'Gervinho'] , ['Junior' , 'Tallo'] , ['Wilfried' , 'Bony'] , ['Lacina' , 'Traore']
-//   ] );
+var ivoryCoast = new squad ('Ivory Coast', 'ivorian', [
+    ['Boubacar' , 'Barry'] , ['Sylvain' , 'Gbohouo'] , ['Sayouba' , 'Mande']
+  ] , [
+    ['Ousmane' , 'Viera'] , ['Kolo' , 'Toure'] , ['Siaka' , 'Tiene'] , ['Jean-Daniel' , 'Akpa-Akpro'] , ['Serge' , 'Aurier'] , ['Eric' , 'Bailly'] , ['Wilfried' , 'Kanon']
+  ] , [
+    ['Roger' , 'Assale']  , ['Cheick' , 'Doukoure'] , ['Cheick' , 'Tiote'] , ['Ismael' , 'Diomande'] , ['Max' , 'Gradel'] , ['Yaya' , 'Toure'] , ['Serey' , 'Die']
+  ] , [
+    ['Seydou' , 'Doumbia'] , ['Salomon' , 'Kalou'] , ['' , 'Gervinho'] , ['Junior' , 'Tallo'] , ['Wilfried' , 'Bony'] , ['Lacina' , 'Traore']
+  ] );
 
-// ivoryCoast.generatePlayers();
-// ivoryCoast.autopick();
+ivoryCoast.generatePlayers();
+ivoryCoast.autopick();
 
-// var chile = new squad ('Chile', 'chilean', [
-//     ['Claudio' , 'Bravo'] , ['Paulo' , 'Garces'] , ['Johnny' , 'Herrera']
-//   ] , [
-//     ['Eugenio' , 'Mena'] , ['Miiko' , 'Albornoz'] , ['Mauricio' , 'Isla'] , ['Jose Pedro' , 'Fuenzalida'] , ['Jose' , 'Rojas'] , ['Jean' , 'Beausejour'] , ['Gary' , 'Medel'] , ['Gonzalo' , 'Jara']
-//   ] , [
-//     ['Francisco' , 'Silva']  , ['Arturo' , 'Vidal'] , ['Jorge' , 'Valdivia'] , ['Matias' , 'Fernandez'] , ['David' , 'Pizarro'] , ['Felipe' , 'Gutierrez'] , ['Charles' , 'Aranguiz'] , ['Marcelo' , 'Diaz']
-//   ] , [
-//     ['Alexis' , 'Sanchez'] , ['Mauricio' , 'Pinilla'] , ['Eduardo' , 'Vargas'] , ['Angelo' , 'Henriquez']
-//   ] );
+var chile = new squad ('Chile', 'chilean', [
+    ['Claudio' , 'Bravo'] , ['Paulo' , 'Garces'] , ['Johnny' , 'Herrera']
+  ] , [
+    ['Eugenio' , 'Mena'] , ['Miiko' , 'Albornoz'] , ['Mauricio' , 'Isla'] , ['Jose Pedro' , 'Fuenzalida'] , ['Jose' , 'Rojas'] , ['Jean' , 'Beausejour'] , ['Gary' , 'Medel'] , ['Gonzalo' , 'Jara']
+  ] , [
+    ['Francisco' , 'Silva']  , ['Arturo' , 'Vidal'] , ['Jorge' , 'Valdivia'] , ['Matias' , 'Fernandez'] , ['David' , 'Pizarro'] , ['Felipe' , 'Gutierrez'] , ['Charles' , 'Aranguiz'] , ['Marcelo' , 'Diaz']
+  ] , [
+    ['Alexis' , 'Sanchez'] , ['Mauricio' , 'Pinilla'] , ['Eduardo' , 'Vargas'] , ['Angelo' , 'Henriquez']
+  ] );
 
-// chile.generatePlayers();
-// chile.autopick();
+chile.generatePlayers();
+chile.autopick();
 
-// var argentina = new squad ('Argentina', 'argentinian', [
-//     ['Sergio' , 'Romero'] , ['Nahuel' , 'Guzman'] , ['Mariano' , 'Andujar']
-//   ] , [
-//     ['Ezequiel' , 'Garay'] , ['Facundo' , 'Roncaglia'] , ['Pablo' , 'Zabaleta'] , ['Milton' , 'Casco'] , ['Martin' , 'Demichelis'] , ['Marcos' , 'Rojo'] , ['Nicolas' , 'Otamendi']
-//   ] , [
-//     ['Fernando' , 'Gago']  , ['Lucas' , 'Biglia'] , ['Angel' , 'Di Maria'] , ['Roberto' , 'Pereyra'] , ['Javier' , 'Mascherano'] , ['Ever' , 'Banega'] , ['Erik' , 'Lamela'] , ['Javier' , 'Pastore']
-//   ] , [
-//     ['Gonzalo' , 'Higuain'] , ['Lionel' , 'Messi'] , ['Sergio' , 'Aguero'] , ['Carlos' , 'Tevez'] , ['Ezequiel' , 'Lavezzi']
-//   ] );
+var argentina = new squad ('Argentina', 'argentinian', [
+    ['Sergio' , 'Romero'] , ['Nahuel' , 'Guzman'] , ['Mariano' , 'Andujar']
+  ] , [
+    ['Ezequiel' , 'Garay'] , ['Facundo' , 'Roncaglia'] , ['Pablo' , 'Zabaleta'] , ['Milton' , 'Casco'] , ['Martin' , 'Demichelis'] , ['Marcos' , 'Rojo'] , ['Nicolas' , 'Otamendi']
+  ] , [
+    ['Fernando' , 'Gago']  , ['Lucas' , 'Biglia'] , ['Angel' , 'Di Maria'] , ['Roberto' , 'Pereyra'] , ['Javier' , 'Mascherano'] , ['Ever' , 'Banega'] , ['Erik' , 'Lamela'] , ['Javier' , 'Pastore']
+  ] , [
+    ['Gonzalo' , 'Higuain'] , ['Lionel' , 'Messi'] , ['Sergio' , 'Aguero'] , ['Carlos' , 'Tevez'] , ['Ezequiel' , 'Lavezzi']
+  ] );
 
-// argentina.generatePlayers();
-// argentina.autopick();
+argentina.generatePlayers();
+argentina.autopick();
 
-// var brazil = new squad ('Brazil', 'brazilian', [
-//     ['' , 'Jefferson'] , ['' , 'Neto'] , ['Marcelo' , 'Grohe']
-//   ] , [
-//     ['Dani' , 'Alves'] , ['' , 'Miranda'] , ['David' , 'Luiz'] , ['Filipe' , 'Luis'] , ['' , 'Marquinhos'] , ['Thiago' , 'Silva'] , ['' , 'Geferson'] , ['' , 'Fabinho']
-//   ] , [
-//     ['' , 'Fernandinho']  , ['Douglas' , 'Costa'] , ['' , 'Elias'] , ['Roberto' , 'Firmino'] , ['' , 'Fred'] , ['Everton' , 'Ribeiro'] , ['' , 'Willian'] , ['Philippe' , 'Coutinho'] , ['' , 'Casemiro']
-//   ] , [
-//     ['Diego' , 'Tardelli'] , ['' , 'Neymar'] , ['' , 'Robinho']
-//   ] );
+var brazil = new squad ('Brazil', 'brazilian', [
+    ['' , 'Jefferson'] , ['' , 'Neto'] , ['Marcelo' , 'Grohe']
+  ] , [
+    ['Dani' , 'Alves'] , ['' , 'Miranda'] , ['David' , 'Luiz'] , ['Filipe' , 'Luis'] , ['' , 'Marquinhos'] , ['Thiago' , 'Silva'] , ['' , 'Geferson'] , ['' , 'Fabinho']
+  ] , [
+    ['' , 'Fernandinho']  , ['Douglas' , 'Costa'] , ['' , 'Elias'] , ['Roberto' , 'Firmino'] , ['' , 'Fred'] , ['Everton' , 'Ribeiro'] , ['' , 'Willian'] , ['Philippe' , 'Coutinho'] , ['' , 'Casemiro']
+  ] , [
+    ['Diego' , 'Tardelli'] , ['' , 'Neymar'] , ['' , 'Robinho']
+  ] );
 
-// brazil.generatePlayers();
-// brazil.autopick();
+brazil.generatePlayers();
+brazil.autopick();
 
-// var usa = new squad ('USA', 'american', [
-//     ['Brad' , 'Guzan'] , ['Nick' , 'Rimando'] , ['William' , 'Yarbrough']
-//   ] , [
-//     ['DeAndre' , 'Yedlin'] , ['Omar' , 'Gonzalez'] , ['John' , 'Brooks'] , ['Ventura' , 'Alvarado'] , ['Greg' , 'Garza'] , ['Tim' , 'Ream'] , ['Brad' , 'Evans'] , ['Timothy' , 'Chandler']
-//   ] , [
-//     ['Michael' , 'Bradley']  , ['Kyle' , 'Beckerman'] , ['Alfredo' , 'Morales'] , ['Mix' , 'Diskerud'] , ['Alejandro' , 'Bedoya'] , ['Graham' , 'Zusi'] , ['Gyasi' , 'Zardes'] , ['Fabian' , 'Johnson']
-//   ] , [
-//     ['Clint' , 'Dempsey'] , ['Aron' , 'Johannsson'] , ['Jozy' , 'Altidore'] , ['Chris' , 'Wondolowski']
-//   ] );
+var usa = new squad ('USA', 'american', [
+    ['Brad' , 'Guzan'] , ['Nick' , 'Rimando'] , ['William' , 'Yarbrough']
+  ] , [
+    ['DeAndre' , 'Yedlin'] , ['Omar' , 'Gonzalez'] , ['John' , 'Brooks'] , ['Ventura' , 'Alvarado'] , ['Greg' , 'Garza'] , ['Tim' , 'Ream'] , ['Brad' , 'Evans'] , ['Timothy' , 'Chandler']
+  ] , [
+    ['Michael' , 'Bradley']  , ['Kyle' , 'Beckerman'] , ['Alfredo' , 'Morales'] , ['Mix' , 'Diskerud'] , ['Alejandro' , 'Bedoya'] , ['Graham' , 'Zusi'] , ['Gyasi' , 'Zardes'] , ['Fabian' , 'Johnson']
+  ] , [
+    ['Clint' , 'Dempsey'] , ['Aron' , 'Johannsson'] , ['Jozy' , 'Altidore'] , ['Chris' , 'Wondolowski']
+  ] );
 
-// usa.generatePlayers();
-// usa.autopick();
+usa.generatePlayers();
+usa.autopick();
 
-// var mexico = new squad ('Mexico', 'mexico', [
-//     ['Moises' , 'Munoz'] , ['Jonathan' , 'Orozco'] , ['Guillermo' , 'Ochoa']
-//   ] , [
-//     ['Francisco' , 'Rodriguez'] , ['Yasser' , 'Corona'] , ['Miguel' , 'Herrera'] , ['Diego' , 'Reyes'] , ['Miguel' , 'Layun'] , ['Miguel' , 'Layunx'] , ['Jorge' , 'Torres Nilo'] , ['Paul' , 'Aguilar']
-//   ] , [
-//     ['Hector' , 'Herrera']  , ['Jonathan' , 'dos Santos'] , ['Jesus' , 'Corona'] , ['Antonio' , 'Rios'] , ['Andres' , 'Guardado'] , ['Jesus' , 'Duenas'] , ['Carlos' , 'Esquivel'] , ['Jose' , ' Vazquez']
-//   ] , [
-//     ['Giovani' , 'dos Santos'] , ['Carlos' , 'Vela'] , ['Javier' , 'Orozco'] , ['Oribe' , 'Peralta']
-//   ] );
+var mexico = new squad ('Mexico', 'mexico', [
+    ['Moises' , 'Munoz'] , ['Jonathan' , 'Orozco'] , ['Guillermo' , 'Ochoa']
+  ] , [
+    ['Francisco' , 'Rodriguez'] , ['Yasser' , 'Corona'] , ['Miguel' , 'Herrera'] , ['Diego' , 'Reyes'] , ['Miguel' , 'Layun'] , ['Miguel' , 'Layunx'] , ['Jorge' , 'Torres Nilo'] , ['Paul' , 'Aguilar']
+  ] , [
+    ['Hector' , 'Herrera']  , ['Jonathan' , 'dos Santos'] , ['Jesus' , 'Corona'] , ['Antonio' , 'Rios'] , ['Andres' , 'Guardado'] , ['Jesus' , 'Duenas'] , ['Carlos' , 'Esquivel'] , ['Jose' , ' Vazquez']
+  ] , [
+    ['Giovani' , 'dos Santos'] , ['Carlos' , 'Vela'] , ['Javier' , 'Orozco'] , ['Oribe' , 'Peralta']
+  ] );
 
-// mexico.generatePlayers();
-// mexico.autopick();
+mexico.generatePlayers();
+mexico.autopick();
