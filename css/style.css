@@ -3,6 +3,8 @@
 }*/
 
 body {
+  background: rgb(0,175,0);
+  color: white;
 }
 
 .hide {
@@ -10,9 +12,9 @@ body {
 }
 
 #frontPage {
-  background: green;
   margin-left: 100px;
   margin-right: 100px;
+  /*color: white;*/
   /*min-height: 900px;*/
 }
 
@@ -37,7 +39,6 @@ header h1 {
 }
 
 #fixtureGroupStage {
-  background: blue;
   margin-left: 100px;
   margin-right: 100px;
   text-align: center;
@@ -45,7 +46,6 @@ header h1 {
 }
 
 #fixtureKnockoutStage {
-  background: red;
   margin-left: 100px;
   margin-right: 100px;
   text-align: center;
@@ -53,7 +53,6 @@ header h1 {
 }
 
 #teamPick {
-  background: yellow;
   margin-left: 100px;
   margin-right: 100px;
   text-align: center;
@@ -66,7 +65,6 @@ header h1 {
 }
 
 #matchScreen {
-  background: orange;
   margin-left: 100px;
   margin-right: 100px;
   text-align: center;
@@ -74,11 +72,12 @@ header h1 {
 }
 
 .pitch * {
-  background:green;
+  background: green;
   height: 50px;
   width: 150px;
   display: inline-block;
   margin: 0;
+  border: 5px solid white;
 }
 
 #ball {
@@ -86,7 +85,6 @@ header h1 {
 }
 
 #communicationPage {
-  background: purple;
   margin-left: 100px;
   margin-right: 100px;
   text-align: center;

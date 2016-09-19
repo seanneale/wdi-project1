@@ -47,11 +47,11 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
   }
   // kick off
   this.kickOff = function(delay){
-    this.delayScreen = delay;
+    this.delayScreen = this.delayScreen || delay || false;
     if(this.played === false){
-    this.possessionZone = 4;
-    this.updateMatchScreen(this.control + " are kicking off")
-    this.pass();
+      this.possessionZone = 4;
+      this.updateMatchScreen(this.control + " are kicking off")
+      this.pass();
     }
   };
 
@@ -269,11 +269,10 @@ var Match = function(homeTeam,awayTeam,homeTeamSquad,awayTeamSquad,stage){
   // pass function - calculate odds and carry out 'pass'
   this.pass = function(){
     var self = this;
-
-    if (this.delayScreen) {
+   if (this.delayScreen) {
       setTimeout(function(){
         pass(self);
-      }, 1000);
+      }, 200);
     } else {
       pass(self);
     }
